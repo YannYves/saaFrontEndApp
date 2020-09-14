@@ -1,24 +1,22 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import allActions from "../actions/allActions";
+import { syncActions } from "../actions";
+import { asyncActions } from "../actions";
 
 const ActionComponent = () => {
   const dispatch = useDispatch();
   const pullAsyncDataFunc = () => {
-    //
-    dispatch(allActions.getAsyncData());
+    dispatch(asyncActions.getAsyncData());
   };
 
   const pullAsyncDataFunc2 = () => {
-    //
-    dispatch(allActions.getAsyncData2());
+    dispatch(asyncActions.getAsyncData2());
   };
   return (
     <div>
       <button
         onClick={() => {
-          dispatch(allActions.increment());
-          //
+          dispatch(syncActions.increment());
         }}
       >
         Increment
@@ -26,9 +24,7 @@ const ActionComponent = () => {
       -{" "}
       <button
         onClick={() => {
-          dispatch(allActions.decrement());
-
-          //
+          dispatch(syncActions.decrement());
         }}
       >
         Decrement
