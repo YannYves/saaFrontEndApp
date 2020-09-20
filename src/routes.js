@@ -9,6 +9,21 @@ export default function Routes() {
       <Route exact path="/">
         <Home />
       </Route>
+      <Route exact path="/la-vie-du-syndicat">
+        <Home />
+      </Route>
+      <Route exact path="/la-ruher-école">
+        <Home />
+      </Route>
+      <Route exact path="/actualités">
+        <Home />
+      </Route>
+      <Route exact path="/utile">
+        <Home />
+      </Route>
+      <Route exact path="/petites-annonces">
+        <Home />
+      </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>
         <NotFound />

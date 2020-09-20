@@ -1,6 +1,6 @@
 import React from "react";
 
-const iconCopyRight = () => {
+export default function Copyright() {
   return (
     <div>
       Icons made by{" "}
@@ -16,6 +16,4 @@ const iconCopyRight = () => {
       </a>
     </div>
   );
-};
-
-export default iconCopyRight;
+}
