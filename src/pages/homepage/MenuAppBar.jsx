@@ -37,7 +37,21 @@ const MenuAppBar = () => {
           <Typography variant="h6" className={classes.title}>
             Le syndicat apicole artésien
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" href="/la-vie-du-syndicat">
+            La vie du syndicat
+          </Button>
+          <Button color="inherit" href="/la-ruher-école">
+            Le rucher école
+          </Button>
+          <Button color="inherit" href="/actualités">
+            Actualités
+          </Button>
+          <Button color="inherit" href="/utile">
+            Utile
+          </Button>
+          <Button color="inherit" href="/petites-annonces">
+            petites annonces
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
