@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import {
   API_URL_POST,
   API_URL_SIDEBAR,
@@ -14,23 +16,38 @@ const findOnePost = (id) => {
   }).then((res) => res.json());
 };
 
-const findAllPost = () => {
-  return fetch(`${API_URL_POST}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+async function findAllPost() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_POST}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
 
-const findAllSideBar = () => {
-  return fetch(`${API_URL_SIDEBAR}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+async function findAllMainPost() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get("http://localhost:1337/mains");
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function findAllSideBar() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_SIDEBAR}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
 
 const findOneSideBar = () => {
   return fetch(`${API_URL_SIDEBAR}`, {
@@ -50,32 +67,27 @@ const findOneFeaturedPost = (id) => {
   }).then((res) => res.json());
 };
 
-const findAllFeaturedPost = (id) => {
-  return fetch(`${API_URL_FEATURED_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+async function findAllFeaturedPost() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_FEATURED_POST}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
 
-const findOneMainFeaturedPost = (id) => {
-  return fetch(`${API_URL_MAIN_FEATURED_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
-
-const findAllMainFeaturedPost = (id) => {
-  return fetch(`${API_URL_MAIN_FEATURED_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+async function findAllMainFeaturedPost() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_MAIN_FEATURED_POST}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
 
 export default {
   findAllPost,
@@ -84,6 +96,6 @@ export default {
   findOneSideBar,
   findOneFeaturedPost,
   findAllFeaturedPost,
-  findOneMainFeaturedPost,
   findAllMainFeaturedPost,
+  findAllMainPost,
 };

@@ -18,20 +18,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sidebar(props) {
   const classes = useStyles();
-  const { archives, description, social, title } = props;
+  const { post } = props;
 
   return (
     <Grid item xs={12} md={4}>
       <Paper elevation={0} className={classes.sidebarAboutBox}>
         <Typography variant="h6" gutterBottom>
-          {title}
+          {post.Linktitle}
         </Typography>
-        <Typography>{description}</Typography>
+        <Typography>{post.description}</Typography>
       </Paper>
-      <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Archives
-      </Typography>
-      {archives.map((archive) => (
+      </Typography> */}
+      {/* {post.archives.map((archive) => (
         <Link
           display="block"
           variant="body1"
@@ -40,11 +40,11 @@ export default function Sidebar(props) {
         >
           {archive.title}
         </Link>
-      ))}
-      <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
+      ))} */}
+      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
         Social
-      </Typography>
-      {social.map((network) => (
+      </Typography> */}
+      {/* {post.social.map((network) => (
         <Link display="block" variant="body1" href="#" key={network}>
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>
@@ -53,7 +53,7 @@ export default function Sidebar(props) {
             <Grid item>{network.name}</Grid>
           </Grid>
         </Link>
-      ))}
+      ))} */}
     </Grid>
   );
 }

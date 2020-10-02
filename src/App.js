@@ -6,7 +6,7 @@ import Copyright from "./components/copyright/Copyright";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <MenuAppBar />
       <Routes />
       <Copyright />
