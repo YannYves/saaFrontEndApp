@@ -5,6 +5,7 @@ import {
   API_URL_SIDEBAR,
   API_URL_FEATURED_POST,
   API_URL_MAIN_FEATURED_POST,
+  API_URL_MAIN_FEATURED_POST_RUCHER_ECOLE,
 } from "../config";
 
 const findOnePost = (id) => {
@@ -77,6 +78,18 @@ async function findAllFeaturedPost() {
     alert(error); // catches both errors
   }
 }
+async function findAllFeaturedPostRucher() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(
+      `${API_URL_MAIN_FEATURED_POST_RUCHER_ECOLE}`
+    );
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
 
 async function findAllMainFeaturedPost() {
   try {
@@ -98,4 +111,5 @@ export default {
   findAllFeaturedPost,
   findAllMainFeaturedPost,
   findAllMainPost,
+  findAllFeaturedPostRucher,
 };

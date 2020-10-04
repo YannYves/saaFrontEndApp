@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./pages/homepage/Home";
+import HomeRucher from "./pages/rucherEcole/HomeRucher";
 import NotFound from "./pages/screens/NotFound";
 
 export default function Routes() {
@@ -12,8 +13,8 @@ export default function Routes() {
       <Route exact path="/la-vie-du-syndicat">
         <Home />
       </Route>
-      <Route exact path="/la-ruher-école">
-        <Home />
+      <Route exact path="/le-rucher-école">
+        <HomeRucher />
       </Route>
       <Route exact path="/actualités">
         <Home />
