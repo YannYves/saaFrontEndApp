@@ -85,7 +85,7 @@ export default function Blog(props) {
   };
 
   const fetchMainFeaturedPost = async () => {
-    const data = await PostAPI.findAllMainFeaturedPost();
+    const data = await PostAPI.findAllFeaturedPostRucher();
     setMainFeaturedPost(data);
     setIsLoading(false);
   };
