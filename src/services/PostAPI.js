@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   API_URL_POST,
+  API_URL_MAIN_POST,
   API_URL_SIDEBAR,
   API_URL_FEATURED_POST,
   API_URL_MAIN_FEATURED_POST,
@@ -31,7 +32,7 @@ async function findAllPost() {
 async function findAllMainPost() {
   try {
     // fetch data from a url endpoint
-    const response = await axios.get("http://localhost:1337/mains");
+    const response = await axios.get(`${API_URL_MAIN_POST}`);
     let data;
     return (data = await response.data);
   } catch (error) {
@@ -49,24 +50,6 @@ async function findAllSideBar() {
     alert(error); // catches both errors
   }
 }
-
-const findOneSideBar = () => {
-  return fetch(`${API_URL_SIDEBAR}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
-
-const findOneFeaturedPost = (id) => {
-  return fetch(`${API_URL_FEATURED_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
 
 async function findAllFeaturedPost() {
   try {
@@ -106,8 +89,6 @@ export default {
   findAllPost,
   findAllSideBar,
   findOnePost,
-  findOneSideBar,
-  findOneFeaturedPost,
   findAllFeaturedPost,
   findAllMainFeaturedPost,
   findAllMainPost,
