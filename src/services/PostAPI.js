@@ -1,26 +1,29 @@
 import axios from "axios";
 
 import {
-  API_URL_POST,
-  API_URL_SIDEBAR,
-  API_URL_FEATURED_POST,
   API_URL_MAIN_FEATURED_POST,
-  API_URL_MAIN_FEATURED_POST_RUCHER_ECOLE,
+  API_URL_FEATURED_POST,
+  API_URL_REGULAR_POST,
+  API_URL_REGULAR_ARTICLE,
+  API_URL_SIDEBAR,
+  API_URL_MAIN_FEATURED_POST_RUCHER,
+  API_URL_FEATURED_POST_RUCHER,
+  API_URL_REGULAR_POST_RUCHER,
+  API_URL_REGULAR_ARTICLE_RUCHER,
+  API_URL_SIDEBAR_RUCHER,
+  API_URL_MAIN_FEATURED_POST_VIE,
+  API_URL_FEATURED_POST_VIE,
+  API_URL_REGULAR_POST_VIE,
+  API_URL_REGULAR_ARTICLE_VIE,
+  API_URL_SIDEBAR_VIE,
 } from "../config";
 
-const findOnePost = (id) => {
-  return fetch(`${API_URL_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+// HP
 
-async function findAllPost() {
+async function findAllMainFeaturedPost() {
   try {
     // fetch data from a url endpoint
-    const response = await axios.get(`${API_URL_POST}`);
+    const response = await axios.get(`${API_URL_MAIN_FEATURED_POST}`);
     let data;
     return (data = await response.data);
   } catch (error) {
@@ -28,10 +31,32 @@ async function findAllPost() {
   }
 }
 
-async function findAllMainPost() {
+async function findAllFeaturedPost() {
   try {
     // fetch data from a url endpoint
-    const response = await axios.get("http://localhost:1337/mains");
+    const response = await axios.get(`${API_URL_FEATURED_POST}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function findAllPost() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_POST}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function findAllRegularArticles() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_ARTICLE}`);
     let data;
     return (data = await response.data);
   } catch (error) {
@@ -50,40 +75,12 @@ async function findAllSideBar() {
   }
 }
 
-const findOneSideBar = () => {
-  return fetch(`${API_URL_SIDEBAR}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
+// Rucher
 
-const findOneFeaturedPost = (id) => {
-  return fetch(`${API_URL_FEATURED_POST}/${id}`, {
-    method: "GET",
-    headers: {
-      Accept: "Application/json",
-    },
-  }).then((res) => res.json());
-};
-
-async function findAllFeaturedPost() {
+async function fetchMainFeaturedPostRucher() {
   try {
     // fetch data from a url endpoint
-    const response = await axios.get(`${API_URL_FEATURED_POST}`);
-    let data;
-    return (data = await response.data);
-  } catch (error) {
-    alert(error); // catches both errors
-  }
-}
-async function findAllFeaturedPostRucher() {
-  try {
-    // fetch data from a url endpoint
-    const response = await axios.get(
-      `${API_URL_MAIN_FEATURED_POST_RUCHER_ECOLE}`
-    );
+    const response = await axios.get(`${API_URL_MAIN_FEATURED_POST_RUCHER}`);
     let data;
     return (data = await response.data);
   } catch (error) {
@@ -91,10 +88,100 @@ async function findAllFeaturedPostRucher() {
   }
 }
 
-async function findAllMainFeaturedPost() {
+async function fetchFeaturedPostsRucher() {
   try {
     // fetch data from a url endpoint
-    const response = await axios.get(`${API_URL_MAIN_FEATURED_POST}`);
+    const response = await axios.get(`${API_URL_FEATURED_POST_RUCHER}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchAllPostRucher() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_POST_RUCHER}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchAllRegularArticlesRucher() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_ARTICLE_RUCHER}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchSidebarRucher() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_SIDEBAR_RUCHER}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+// Vie Syndic
+
+async function fetchMainFeaturedPostVie() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_FEATURED_POST_VIE}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchFeaturedPostsVie() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_MAIN_FEATURED_POST_VIE}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchAllPostVie() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_POST_VIE}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchAllRegularArticlesVie() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_ARTICLE_VIE}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
+async function fetchSidebarVie() {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_SIDEBAR_VIE}`);
     let data;
     return (data = await response.data);
   } catch (error) {
@@ -103,13 +190,21 @@ async function findAllMainFeaturedPost() {
 }
 
 export default {
-  findAllPost,
-  findAllSideBar,
-  findOnePost,
-  findOneSideBar,
-  findOneFeaturedPost,
-  findAllFeaturedPost,
   findAllMainFeaturedPost,
-  findAllMainPost,
-  findAllFeaturedPostRucher,
+  findAllFeaturedPost,
+  findAllPost,
+  findAllRegularArticles,
+  findAllSideBar,
+
+  fetchMainFeaturedPostRucher,
+  fetchFeaturedPostsRucher,
+  fetchAllPostRucher,
+  fetchAllRegularArticlesRucher,
+  fetchSidebarRucher,
+
+  fetchMainFeaturedPostVie,
+  fetchFeaturedPostsVie,
+  fetchAllPostVie,
+  fetchAllRegularArticlesVie,
+  fetchSidebarVie,
 };

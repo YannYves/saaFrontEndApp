@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Box, Container } from "@material-ui/core";
-import { GitHubIcon, FacebookIcon, TwitterIcon } from "@material-ui/icons";
+
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -16,11 +16,11 @@ import FeaturedPost from "./FeaturedPost";
 import CardPost from "./CardPost";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-import MainPost from "./MainPost";
+import Article from "./Article";
 import PostAPI from "../../services/PostAPI";
 
 function ScrollTop(props) {
-  const { children, window } = props;
+  const { children } = props;
   const classes = useStyles();
 
   const trigger = useScrollTrigger({
@@ -64,50 +64,48 @@ const useStyles = makeStyles((theme) => ({
 export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
-  console.log("Blog -> featuredPosts", featuredPosts);
-
-  const [sidebar, setSidebar] = useState([]);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
-  const [mainPost, setMainPost] = useState([]);
+  const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [sidebar, setSidebar] = useState([]);
 
-  const fetchAllPosts = async () => {
-    const data = await PostAPI.findAllPost();
-    setPosts(data);
-    setIsLoading(false);
-  };
-
-  const fetchFeaturedPosts = async () => {
-    const data = await PostAPI.findAllFeaturedPost();
-    setFeaturedPosts(data);
-    setIsLoading(false);
-  };
-
-  const fetchMainFeaturedPost = async () => {
-    const data = await PostAPI.findAllFeaturedPostRucher();
+  const fetchMainFeaturedPostRucher = async () => {
+    const data = await PostAPI.fetchMainFeaturedPostRucher();
     setMainFeaturedPost(data);
     setIsLoading(false);
   };
 
-  const fetchSidebar = async () => {
-    const data = await PostAPI.findAllSideBar();
+  const fetchFeaturedPostsRucher = async () => {
+    const data = await PostAPI.fetchFeaturedPostsRucher();
+    setFeaturedPosts(data);
+    setIsLoading(false);
+  };
+
+  const fetchAllPostRucher = async () => {
+    const data = await PostAPI.fetchAllPostRucher();
+    setPosts(data);
+    setIsLoading(false);
+  };
+
+  const fetchAllRegularArticlesRucher = async () => {
+    const data = await PostAPI.fetchAllRegularArticlesRucher();
+    setArticles(data);
+    setIsLoading(false);
+  };
+
+  const fetchSidebarRucher = async () => {
+    const data = await PostAPI.fetchSidebarRucher();
     setSidebar(data);
     setIsLoading(false);
   };
 
-  const fetchMainPost = async () => {
-    const data = await PostAPI.findAllMainPost();
-    setMainPost(data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
-    fetchAllPosts();
-    fetchFeaturedPosts();
-    fetchMainFeaturedPost();
-    fetchSidebar();
-    fetchMainPost();
+    fetchFeaturedPostsRucher();
+    fetchMainFeaturedPostRucher();
+    fetchAllPostRucher();
+    fetchAllRegularArticlesRucher();
+    fetchSidebarRucher();
   }, []);
 
   return (
@@ -179,7 +177,7 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              <MainPost posts={mainPost} />
+              <Article posts={articles} />
             )}
           </Grid>
         </main>
