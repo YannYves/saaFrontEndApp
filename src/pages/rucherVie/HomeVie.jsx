@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Box, Container } from "@material-ui/core";
-import { GitHubIcon, FacebookIcon, TwitterIcon } from "@material-ui/icons";
+
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -16,11 +16,11 @@ import FeaturedPost from "./FeaturedPost";
 import CardPost from "./CardPost";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
-import MainPost from "./MainPost";
+import Article from "./Article";
 import PostAPI from "../../services/PostAPI";
 
 function ScrollTop(props) {
-  const { children, window } = props;
+  const { children } = props;
   const classes = useStyles();
 
   const trigger = useScrollTrigger({
@@ -64,48 +64,48 @@ const useStyles = makeStyles((theme) => ({
 export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
-  const [sidebar, setSidebar] = useState([]);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
-  const [mainPost, setMainPost] = useState([]);
+  const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [sidebar, setSidebar] = useState([]);
 
-  const findAllMainFeaturedPost = async () => {
-    const data = await PostAPI.findAllMainFeaturedPost();
+  const fetchMainFeaturedPostVie = async () => {
+    const data = await PostAPI.fetchMainFeaturedPostVie();
     setMainFeaturedPost(data);
     setIsLoading(false);
   };
 
-  const findAllFeaturedPost = async () => {
-    const data = await PostAPI.findAllFeaturedPost();
+  const fetchFeaturedPostsVie = async () => {
+    const data = await PostAPI.fetchFeaturedPostsVie();
     setFeaturedPosts(data);
     setIsLoading(false);
   };
 
-  const findAllPost = async () => {
-    const data = await PostAPI.findAllPost();
+  const fetchAllPostVie = async () => {
+    const data = await PostAPI.fetchAllPostVie();
     setPosts(data);
     setIsLoading(false);
   };
 
-  const findAllRegularArticles = async () => {
-    const data = await PostAPI.findAllRegularArticles();
-    setMainPost(data);
+  const fetchAllRegularArticlesVie = async () => {
+    const data = await PostAPI.fetchAllRegularArticlesVie();
+    setArticles(data);
     setIsLoading(false);
   };
 
-  const findAllSideBar = async () => {
-    const data = await PostAPI.findAllSideBar();
+  const fetchSidebarVie = async () => {
+    const data = await PostAPI.fetchSidebarVie();
     setSidebar(data);
     setIsLoading(false);
   };
 
   useEffect(() => {
-    findAllMainFeaturedPost();
-    findAllFeaturedPost();
-    findAllPost();
-    findAllRegularArticles();
-    findAllSideBar();
+    fetchFeaturedPostsVie();
+    fetchMainFeaturedPostVie();
+    fetchAllPostVie();
+    fetchAllRegularArticlesVie();
+    fetchSidebarVie();
   }, []);
 
   return (
@@ -177,7 +177,7 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              <MainPost posts={mainPost} />
+              <Article posts={articles} />
             )}
           </Grid>
         </main>
