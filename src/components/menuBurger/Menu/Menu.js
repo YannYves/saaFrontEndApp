@@ -16,7 +16,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true">👨‍🎓</span>
         Le rucher école
       </a>
-      <a href="/actualités" tabIndex={tabIndex}>
+      <a href="/news" tabIndex={tabIndex}>
         <span aria-hidden="true">📰</span>
         Actualités
       </a>

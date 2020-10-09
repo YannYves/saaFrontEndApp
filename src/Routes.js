@@ -3,6 +3,9 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./pages/homepage/Home";
 import HomeRucher from "./pages/rucherEcole/HomeRucher";
 import HomeVie from "./pages/rucherVie/HomeVie";
+import HomeNews from "./pages/news/HomeNews";
+import HomeUtils from "./pages/utile/HomeUtils";
+import HomeAnnonce from "./pages/annonce/HomeAnnonce";
 import NotFound from "./pages/screens/NotFound";
 
 export default function Routes() {
@@ -17,14 +20,14 @@ export default function Routes() {
       <Route exact path="/le-rucher-école">
         <HomeRucher />
       </Route>
-      <Route exact path="/actualités">
-        <Home />
+      <Route exact path="/news">
+        <HomeNews />
       </Route>
       <Route exact path="/utile">
-        <Home />
+        <HomeUtils />
       </Route>
       <Route exact path="/petites-annonces">
-        <Home />
+        <HomeAnnonce />
       </Route>
       {/* Finally, catch all unmatched routes */}
       <Route>

@@ -36,3 +36,45 @@ export const API_URL_REGULAR_ARTICLE_VIE =
   "http://localhost:1337/vie-syndic-regular-articles";
 export const API_URL_SIDEBAR_VIE =
   "http://localhost:1337/vie-syndic-main-sidebars";
+
+//NEWS
+export const API_URL_MAIN_FEATURED_POST_NEWS =
+  "http://localhost:1337/news-main-featured-posts";
+
+export const API_URL_FEATURED_POST_NEWS =
+  "http://localhost:1337/news-featured-posts";
+
+export const API_URL_REGULAR_POST_NEWS =
+  "http://localhost:1337/news-regular-posts";
+
+export const API_URL_REGULAR_ARTICLE_NEWS =
+  "http://localhost:1337/news-regular-articles";
+export const API_URL_SIDEBAR_NEWS = "http://localhost:1337/news-sidebars";
+
+//UTILS
+export const API_URL_MAIN_FEATURED_POST_UTILS =
+  "http://localhost:1337/utils-main-featured-posts";
+
+export const API_URL_FEATURED_POST_UTILS =
+  "http://localhost:1337/utils-featured-posts";
+
+export const API_URL_REGULAR_POST_UTILS =
+  "http://localhost:1337/utils-regular-posts";
+
+export const API_URL_REGULAR_ARTICLE_UTILS =
+  "http://localhost:1337/utils-regular-articles";
+export const API_URL_SIDEBAR_UTILS = "http://localhost:1337/utils-sidebars";
+
+//ANNONCE
+export const API_URL_MAIN_FEATURED_POST_ANNONCE =
+  "http://localhost:1337/annonce-main-featured-posts";
+
+export const API_URL_FEATURED_POST_ANNONCE =
+  "http://localhost:1337/annonce-featured-posts";
+
+export const API_URL_REGULAR_POST_ANNONCE =
+  "http://localhost:1337/annonce-regular-posts";
+
+export const API_URL_REGULAR_ARTICLE_ANNONCE =
+  "http://localhost:1337/annonce-regular-articles";
+export const API_URL_SIDEBAR_ANNONCE = "http://localhost:1337/annonce-sidebars";

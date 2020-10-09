@@ -70,6 +70,8 @@ const MenuAppBar = (props) => {
   useOnClickOutside(node, () => setOpen(false));
   const classes = useStyles();
 
+  // TODO Refacto => This component one time in app.js
+
   return (
     <Grid nowrap className={classes.root}>
       <HideOnScroll {...props}>
@@ -111,7 +113,7 @@ const MenuAppBar = (props) => {
                   Le rucher école
                 </Typography>
               </Button>
-              <Button color="inherit" href="/actualités" item>
+              <Button color="inherit" href="/news" item>
                 <Typography className={classes.item} variant="h6" noWrap>
                   Actualités
                 </Typography>
