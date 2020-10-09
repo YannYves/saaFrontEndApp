@@ -106,7 +106,7 @@ const MenuAppBar = (props) => {
                   La vie du syndicat
                 </Typography>
               </Button>
-              <Button color="inherit" href="/la-ruher-école" item>
+              <Button color="inherit" href="/le-rucher-école" item>
                 <Typography className={classes.item} variant="h6" noWrap>
                   Le rucher école
                 </Typography>
