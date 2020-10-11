@@ -6,6 +6,7 @@ import HomeVie from "./pages/rucherVie/HomeVie";
 import HomeNews from "./pages/news/HomeNews";
 import HomeUtils from "./pages/utile/HomeUtils";
 import HomeAnnonce from "./pages/annonce/HomeAnnonce";
+import Post from "./components/post/PostPages";
 import NotFound from "./screens/NotFound";
 
 export default function Routes() {
@@ -29,6 +30,10 @@ export default function Routes() {
       <Route exact path="/petites-annonces">
         <HomeAnnonce />
       </Route>
+      <Route exact path="/post/:id">
+        <Post />
+      </Route>
+
       {/* Finally, catch all unmatched routes */}
       <Route>
         <NotFound />

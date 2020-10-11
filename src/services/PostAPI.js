@@ -68,6 +68,17 @@ async function findAllPost() {
   }
 }
 
+async function findOnePost(id) {
+  try {
+    // fetch data from a url endpoint
+    const response = await axios.get(`${API_URL_REGULAR_POST}/${id}`);
+    let data;
+    return (data = await response.data);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+}
+
 async function findAllRegularArticles() {
   try {
     // fetch data from a url endpoint
@@ -379,6 +390,7 @@ export default {
   findAllMainFeaturedPost,
   findAllFeaturedPost,
   findAllPost,
+  findOnePost,
   findAllRegularArticles,
   findAllSideBar,
 
