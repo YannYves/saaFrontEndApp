@@ -11,7 +11,19 @@ import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  link: {
+    ...theme.typography.card.link,
+    color: theme.palette.secondary.main,
+  },
+  text: {
+    ...theme.typography.card.text,
+    color: theme.palette.primary.main,
+  },
+  title: {
+    ...theme.typography.card.title,
+    color: theme.palette.primary.main,
+  },
   root: {
     maxWidth: 345,
     margin: "0 auto",
@@ -19,11 +31,10 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
-});
+}));
 
 export default function CardPost({ post }) {
   const classes = useStyles();
-  console.log(post);
   return (
     <Grid item xs={12} sm={4} lg={3}>
       <Card className={classes.root}>
@@ -38,18 +49,28 @@ export default function CardPost({ post }) {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography
+              gutterBottom
+              variant="h5"
+              className={classes.title}
+              component="h2"
+            >
               {post.title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              className={classes.text}
+              component="p"
+            >
               {post.content}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Link to={`/post/${post.id}`}>
-            <Button size="small" color="primary">
-              Learn More
+            <Button size="small" className={classes.link}>
+              En savoir plus
             </Button>
           </Link>
         </CardActions>

@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
   sidebarSection: {
     marginTop: theme.spacing(3),
   },
+  description: {
+    ...theme.typography.sideBar,
+    color: theme.palette.primary.main,
+  },
 }));
 
 export default function Sidebar(props) {
@@ -26,41 +30,10 @@ export default function Sidebar(props) {
         <Typography variant="h6" gutterBottom>
           {post.Linktitle}
         </Typography>
-        <Typography>{post.description}</Typography>
+        <Typography className={classes.description}>
+          {post.description}
+        </Typography>
       </Paper>
-      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-        Archives
-      </Typography> */}
-      {/* {post.archives.map((archive) => (
-        <Link
-          display="block"
-          variant="body1"
-          href={archive.url}
-          key={archive.title}
-        >
-          {archive.title}
-        </Link>
-      ))} */}
-      {/* <Typography variant="h6" gutterBottom className={classes.sidebarSection}>
-        Social
-      </Typography> */}
-      {/* {post.social.map((network) => (
-        <Link display="block" variant="body1" href="#" key={network}>
-          <Grid container direction="row" spacing={1} alignItems="center">
-            <Grid item>
-              <network.icon />
-            </Grid>
-            <Grid item>{network.name}</Grid>
-          </Grid>
-        </Link>
-      ))} */}
     </Grid>
   );
 }
-
-Sidebar.propTypes = {
-  archives: PropTypes.array,
-  description: PropTypes.string,
-  social: PropTypes.array,
-  title: PropTypes.string,
-};
