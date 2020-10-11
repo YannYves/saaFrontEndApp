@@ -6,7 +6,7 @@ import HomeVie from "./pages/rucherVie/HomeVie";
 import HomeNews from "./pages/news/HomeNews";
 import HomeUtils from "./pages/utile/HomeUtils";
 import HomeAnnonce from "./pages/annonce/HomeAnnonce";
-import NotFound from "./pages/screens/NotFound";
+import NotFound from "./screens/NotFound";
 
 export default function Routes() {
   return (

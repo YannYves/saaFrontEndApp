@@ -32,6 +32,19 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
+
+  description: {
+    ...theme.typography.banner.description,
+    color: theme.palette.secondary.main,
+  },
+  text: {
+    ...theme.typography.banner.text,
+    color: theme.palette.primary.main,
+  },
+  title: {
+    ...theme.typography.banner.title,
+    color: theme.palette.primary.main,
+  },
 }));
 
 export default function MainFeaturedPost(props) {
@@ -54,15 +67,18 @@ export default function MainFeaturedPost(props) {
               variant="h3"
               color="inherit"
               gutterBottom
+              className={classes.title}
             >
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography
+              variant="h5"
+              color="inherit"
+              paragraph
+              className={classes.description}
+            >
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
-              {post.linkText}
-            </Link>
           </div>
         </Grid>
       </Grid>

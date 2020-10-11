@@ -1,16 +1,21 @@
 import React from "react";
 import "./App.css";
-import MenuAppBar from "./pages/homepage/MenuAppBar";
+import MenuAppBar from "./components/navbar/MenuAppBar";
+import Footer from "./components/footer/Footer";
 import Routes from "./Routes";
-import Copyright from "./components/copyright/Copyright";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./UI/Theme";
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <MenuAppBar />
       <Routes />
-      <Copyright />
-    </div>
+      <Footer
+        title="Made with <3 by Yann Dubois"
+        description="Something here to give the footer a purpose!"
+      />
+    </ThemeProvider>
   );
 }
 

@@ -11,7 +11,7 @@ import { Link, Button } from "@material-ui/core";
 
 import { API_URL_FEATURED_POST } from "../../config";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     display: "flex",
   },
@@ -22,7 +22,26 @@ const useStyles = makeStyles({
     width: 160,
     height: 140,
   },
-});
+  link: {
+    ...theme.typography.featured.link,
+    color: theme.palette.secondary.main,
+  },
+  text: {
+    ...theme.typography.featured.text,
+    color: theme.palette.primary.main,
+  },
+  title: {
+    ...theme.typography.featured.title,
+    color: theme.palette.primary.main,
+  },
+  root: {
+    maxWidth: 345,
+    margin: "0 auto",
+  },
+  media: {
+    height: 140,
+  },
+}));
 
 export default function FeaturedPost({ post }) {
   const classes = useStyles();

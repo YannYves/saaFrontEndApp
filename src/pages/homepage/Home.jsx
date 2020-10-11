@@ -3,24 +3,25 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Box, Container } from "@material-ui/core";
-import { GitHubIcon, FacebookIcon, TwitterIcon } from "@material-ui/icons";
+import Toolbar from "@material-ui/core/Toolbar";
+
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import Toolbar from "@material-ui/core/Toolbar";
 
+import Copyright from "../../components/copyright/Copyright";
 import MainFeaturedPost from "./MainFeaturePost";
 import FeaturedPost from "./FeaturedPost";
 import CardPost from "./CardPost";
-import Footer from "./Footer";
+
 import Sidebar from "./Sidebar";
 import MainPost from "./MainPost";
 import PostAPI from "../../services/PostAPI";
 
 function ScrollTop(props) {
-  const { children, window } = props;
+  const { children } = props;
   const classes = useStyles();
 
   const trigger = useScrollTrigger({
@@ -115,13 +116,11 @@ export default function Blog(props) {
         <Toolbar id="back-to-top-anchor" />
         <main>
           {isLoading ? (
-            <Box>
-              <Skeleton variant="rect" width={210} height={118} />
-              <Skeleton width={60} />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-            </Box>
+            <React.Fragment>
+              <Skeleton height={150} width="100%">
+                <div style={{ marginBottom: "2rem" }} />
+              </Skeleton>
+            </React.Fragment>
           ) : (
             mainFeaturedPost.map((post) => (
               <MainFeaturedPost post={post} key={post.title} />
@@ -130,8 +129,8 @@ export default function Blog(props) {
 
           <Grid container spacing={4}>
             {isLoading ? (
-              <Box>
-                <Skeleton variant="rect" width={210} height={118} />
+              <Box width="50vw" margin={2}>
+                <Skeleton variant="rect" width="100%" height={118} />
                 <Skeleton width={60} />
                 <Skeleton />
                 <Skeleton />
@@ -145,7 +144,7 @@ export default function Blog(props) {
           </Grid>
           <Grid container spacing={4}>
             {isLoading ? (
-              <Box>
+              <Box width="65vw" margin={2}>
                 <Skeleton variant="rect" width={210} height={118} />
                 <Skeleton width={60} />
                 <Skeleton />
@@ -156,7 +155,7 @@ export default function Blog(props) {
               posts.map((post) => <CardPost post={post} key={post.id} />)
             )}
             {isLoading ? (
-              <Box>
+              <Box width="55w" margin={2}>
                 <Skeleton variant="rect" width={210} height={118} />
                 <Skeleton width={60} />
                 <Skeleton />
@@ -169,9 +168,16 @@ export default function Blog(props) {
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
-              <Box>
-                <Skeleton variant="rect" width={210} height={118} />
-                <Skeleton width={60} />
+              <Box width="100vw" margin={2}>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
@@ -187,10 +193,7 @@ export default function Blog(props) {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
+      <Copyright />
     </React.Fragment>
   );
 }
