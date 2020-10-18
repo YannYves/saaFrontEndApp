@@ -26,7 +26,7 @@ export default createMuiTheme({
       fontFamily: `${mainFont}`,
       textTransform: "none",
       fontWeight: "600",
-      fontSize: "1.1rem",
+      fontSize: "0.7rem",
     },
     sideBar: {
       fontFamily: `${mainFont}`,

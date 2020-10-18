@@ -80,6 +80,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  containerTabs: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+
   container: {
     width: "100%",
     justifyContent: "flex-start",
