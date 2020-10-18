@@ -40,6 +40,7 @@ export const StyledBurger = styled.button`
 
     @media (min-width: ${({ theme }) => theme.mobile}) {
       display: none;
+      width:none;
     }
   }
 `;

@@ -11,10 +11,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <MenuAppBar />
       <Routes />
-      <Footer
-        title="Made with <3 by Yann Dubois"
-        description="Something here to give the footer a purpose!"
-      />
+      <Footer/>
     </ThemeProvider>
   );
 }

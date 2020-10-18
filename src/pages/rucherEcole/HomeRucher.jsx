@@ -14,7 +14,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import MainFeaturedPost from "./MainFeaturePost";
 import FeaturedPost from "./FeaturedPost";
 import CardPost from "./CardPost";
-import Footer from "./Footer";
+
 import Sidebar from "./Sidebar";
 import Article from "./Article";
 import PostAPI from "../../services/PostAPI";

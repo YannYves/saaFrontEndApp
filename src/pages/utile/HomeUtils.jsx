@@ -14,7 +14,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import MainFeaturedPost from "./MainFeaturePost";
 import FeaturedPost from "./FeaturedPost";
 import CardPost from "./CardPost";
-import Footer from "./Footer";
+
 import Sidebar from "./Sidebar";
 import Article from "./Article";
 import PostAPI from "../../services/PostAPI";
