@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CardPost({ post }) {
+export default function CardPost({ post, link }) {
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={4} lg={3}>
@@ -46,7 +46,6 @@ export default function CardPost({ post }) {
                 ? API_URL + post.image[0].formats.small.url
                 : "..."
             }
-            title="Contemplative Reptile"
           />
           <CardContent>
             <Typography
@@ -68,7 +67,7 @@ export default function CardPost({ post }) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link to={`/post/${post.id}`}>
+          <Link to={`/${link}/${post.id}`}>
             <Button size="small" className={classes.link}>
               En savoir plus
             </Button>

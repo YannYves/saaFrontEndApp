@@ -14,7 +14,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Copyright from "../../components/copyright/Copyright";
 import MainFeaturedPost from "./MainFeaturePost";
 import FeaturedPost from "./FeaturedPost";
-import CardPost from "./CardPost";
+import CardPost from "../../components/post/CardPost";
 
 import Sidebar from "./Sidebar";
 import MainPost from "./MainPost";
@@ -65,10 +65,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
-  const [sidebar, setSidebar] = useState([]);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
+  const [featuredPosts, setFeaturedPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [sidebar, setSidebar] = useState([]);
   const [mainPost, setMainPost] = useState([]);
 
   const findAllMainFeaturedPost = async () => {
@@ -152,7 +152,9 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              posts.map((post) => <CardPost post={post} key={post.id} />)
+              posts.map((post) => (
+                <CardPost post={post} key={post.id} link="post" />
+              ))
             )}
             {isLoading ? (
               <Box width="55w" margin={2}>
