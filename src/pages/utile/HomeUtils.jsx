@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import MainFeaturedPost from "./MainFeaturePost";
 import FeaturedPost from "./FeaturedPost";
-import CardPost from "./CardPost";
+import CardPost from "../../components/post/CardPost";
 
 import Sidebar from "./Sidebar";
 import Article from "./Article";
@@ -151,7 +151,9 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              posts.map((post) => <CardPost post={post} key={post.id} />)
+              posts.map((post) => (
+                <CardPost post={post} key={post.id} link="utile/post" />
+              ))
             )}
             {isLoading ? (
               <Box width="55w" margin={2}>

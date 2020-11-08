@@ -12,7 +12,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true">🐝</span>
         La vie du syndicat
       </a>
-      <a href="/le-rucher-école" tabIndex={tabIndex}>
+      <a href="/le-rucher-ecole" tabIndex={tabIndex}>
         <span aria-hidden="true">👨‍🎓</span>
         Le rucher école
       </a>
@@ -25,7 +25,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true">🔨</span>
         Utile
       </a>
-      <a href="/petites-annonces" tabIndex={tabIndex}>
+      <a href="/petites-annonce" tabIndex={tabIndex}>
         <span aria-hidden="true">🛒</span>
         petites annonces
       </a>

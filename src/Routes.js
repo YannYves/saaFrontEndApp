@@ -8,6 +8,7 @@ import HomeUtils from "./pages/utile/HomeUtils";
 import HomeAnnonce from "./pages/annonce/HomeAnnonce";
 import Post from "./components/post/PostPages";
 import NotFound from "./screens/NotFound";
+import API from "./services/PostAPI";
 
 export default function Routes() {
   return (
@@ -18,7 +19,7 @@ export default function Routes() {
       <Route exact path="/la-vie-du-syndicat">
         <HomeVie />
       </Route>
-      <Route exact path="/le-rucher-école">
+      <Route exact path="/le-rucher-ecole">
         <HomeRucher />
       </Route>
       <Route exact path="/news">
@@ -27,14 +28,27 @@ export default function Routes() {
       <Route exact path="/utile">
         <HomeUtils />
       </Route>
-      <Route exact path="/petites-annonces">
+      <Route exact path="/petites-annonce">
         <HomeAnnonce />
       </Route>
       <Route exact path="/post/:id">
-        <Post />
+        <Post api={API.fetchOnePost} />
       </Route>
-
-      {/* Finally, catch all unmatched routes */}
+      <Route exact path="/vie/post/:id">
+        <Post api={API.fetchOnePostVie} />
+      </Route>
+      <Route exact path="/le-rucher-ecole/post/:id">
+        <Post api={API.fetchOnePostRucher} />
+      </Route>
+      <Route exact path="/news/post/:id">
+        <Post api={API.fetchOnePostNews} />
+      </Route>
+      <Route exact path="/utile/post/:id">
+        <Post api={API.fetchOnePostUtils} />
+      </Route>
+      <Route exact path="/petites-annonce/post/:id">
+        <Post api={API.fetchOnePostAnnonce} />
+      </Route>
       <Route>
         <NotFound />
       </Route>

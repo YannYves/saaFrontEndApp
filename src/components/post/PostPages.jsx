@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import { useParams, Link } from "react-router-dom";
 import { API_URL } from "../../config";
 
@@ -13,11 +13,11 @@ import PostAPI from "../../services/PostAPI";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    height: '100vh',
+    height: "100vh",
   },
 }));
 
-function Post() {
+function Post({ api }) {
   const classes = useStyles();
   const { id } = useParams();
   const [postState, setPost] = useState(null);
@@ -29,7 +29,7 @@ function Post() {
   }, []);
 
   const fetchPost = async () => {
-    const data = await PostAPI.findOnePost(id);
+    const data = await api(id);
     setPost(data);
     setIsLoading(false);
   };
@@ -37,7 +37,12 @@ function Post() {
   return (
     <Grid>
       <Toolbar />
-      <Grid spacing={3} container justify="center" className={classes.container} >
+      <Grid
+        spacing={3}
+        container
+        justify="center"
+        className={classes.container}
+      >
         <Grid item xs={10}>
           <Link to="/">
             <Button variant="contained" color="primary">
