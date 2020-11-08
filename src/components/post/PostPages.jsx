@@ -9,7 +9,6 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import PostContentLoader from "../loader/PosstContentLoader";
 
 import Typography from "@material-ui/core/Typography";
-import PostAPI from "../../services/PostAPI";
 
 const useStyles = makeStyles((theme) => ({
   container: {
