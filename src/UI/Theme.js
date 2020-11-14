@@ -1,21 +1,25 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const arcBlue = "#0B72B9";
-const arcOrange = "#FFBA60";
+const saaPrimary = "#F2B705";
+const saaSencondary = "#D97904";
+const titleColor = "#eeeeee";
+const textColor = "#ffffff";
 
 const mainFont = "HelveticaNeue";
 
 export default createMuiTheme({
   palette: {
     common: {
-      arcBlue: `${arcBlue}`,
-      arcOrange: `${arcOrange}`,
+      saaSencondary: `${saaSencondary}`,
+      saaPrimary: `${saaPrimary}`,
+      titleColor: `${titleColor}`,
+      textColor: `${textColor}`,
     },
     primary: {
-      main: `${arcBlue}`,
+      main: `${saaSencondary}`,
     },
     secondary: {
-      main: `${arcOrange}`,
+      main: `${saaPrimary}`,
     },
   },
   typography: {
@@ -25,8 +29,8 @@ export default createMuiTheme({
     tab: {
       fontFamily: `${mainFont}`,
       textTransform: "none",
-      fontWeight: "600",
-      fontSize: "0.7rem",
+      fontWeight: "500",
+      fontSize: "0.8rem",
     },
     sideBar: {
       fontFamily: `${mainFont}`,

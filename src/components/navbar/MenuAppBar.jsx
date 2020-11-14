@@ -123,16 +123,13 @@ const MenuAppBar = (props) => {
       value !== 1
     ) {
       setValue(1);
-    } else if (window.location.pathname === "/le-rucher-école" && value !== 2) {
+    } else if (window.location.pathname === "/le-rucher-ecole" && value !== 2) {
       setValue(2);
     } else if (window.location.pathname === "/news" && value !== 3) {
       setValue(3);
     } else if (window.location.pathname === "/utile" && value !== 4) {
       setValue(4);
-    } else if (
-      window.location.pathname === "/petites-annonces" &&
-      value !== 0
-    ) {
+    } else if (window.location.pathname === "/petites-annonce" && value !== 0) {
       setValue(5);
     }
   }, [value]);
@@ -188,7 +185,7 @@ const MenuAppBar = (props) => {
                     <Tab
                       className={classes.tab}
                       component={Link}
-                      to="/le-rucher-école"
+                      to="/le-rucher-ecole"
                       label="Le rucher ecole"
                     />
                     <Tab
@@ -206,7 +203,7 @@ const MenuAppBar = (props) => {
                     <Tab
                       className={classes.tab}
                       component={Link}
-                      to="/petites-annonces"
+                      to="/petites-annonce"
                       label="Petites annonces"
                     />
                   </Tabs>

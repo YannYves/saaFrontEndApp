@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const StyledBurger = styled.button`
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
   position: absolute;
   top: 2rem;
   left: 2rem;
@@ -36,11 +39,6 @@ export const StyledBurger = styled.button`
 
     :nth-child(3) {
       transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
-    }
-
-    @media (min-width: ${({ theme }) => theme.mobile}) {
-      display: none;
-      width:none;
     }
   }
 `;

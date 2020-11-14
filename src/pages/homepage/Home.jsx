@@ -12,12 +12,11 @@ import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import Copyright from "../../components/copyright/Copyright";
-import MainFeaturedPost from "./MainFeaturePost";
-import FeaturedPost from "./FeaturedPost";
+import MainFeaturedPost from "../../components/post/MainFeaturePost";
+import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
-
-import Sidebar from "./Sidebar";
-import MainPost from "./MainPost";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 
 function ScrollTop(props) {
@@ -185,7 +184,7 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              <MainPost posts={mainPost} />
+              <Article posts={mainPost} />
             )}
           </Grid>
         </main>

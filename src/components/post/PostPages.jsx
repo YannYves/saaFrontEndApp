@@ -10,11 +10,7 @@ import PostContentLoader from "../loader/PosstContentLoader";
 
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    height: "100vh",
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 function Post({ api }) {
   const classes = useStyles();
