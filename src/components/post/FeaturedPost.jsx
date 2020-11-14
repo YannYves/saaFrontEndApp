@@ -40,24 +40,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FeaturedPost({ post }) {
-  console.log("FeaturedPost -> post", post)
+  console.log("FeaturedPost -> post", post);
   const classes = useStyles();
-  
+
   return (
     <Grid item xs={12} md={6}>
       <Card>
         <CardActionArea>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              className={classes.title}
+            >
               {post.title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" >
+            <Typography variant="body2" color="textSecondary" component="p">
               {post.description}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-        </CardActions>
+        <CardActions></CardActions>
       </Card>
     </Grid>
   );

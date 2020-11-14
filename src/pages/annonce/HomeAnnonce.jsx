@@ -11,12 +11,11 @@ import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
 
-import MainFeaturedPost from "./MainFeaturePost";
-import FeaturedPost from "./FeaturedPost";
+import MainFeaturedPost from "../../components/post/MainFeaturePost";
+import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
-
-import Sidebar from "./Sidebar";
-import Article from "./Article";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 
 function ScrollTop(props) {
