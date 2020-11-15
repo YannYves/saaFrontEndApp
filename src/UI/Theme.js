@@ -4,6 +4,7 @@ const saaPrimary = "#F2B705";
 const saaSencondary = "#D97904";
 const titleColor = "#eeeeee";
 const textColor = "#ffffff";
+const dateColor = "#5c6f84";
 
 const mainFont = "HelveticaNeue";
 
@@ -20,6 +21,12 @@ export default createMuiTheme({
     },
     secondary: {
       main: `${saaPrimary}`,
+    },
+    date: {
+      color: `${dateColor}`,
+      fontWeight: "500",
+      fontSize: "1rem",
+      fontStyle: "italic",
     },
   },
   typography: {

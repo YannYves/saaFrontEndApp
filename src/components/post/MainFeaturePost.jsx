@@ -3,14 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { API_URL } from "../../config";
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
     position: "relative",
-    backgroundColor: theme.palette.grey[800],
-    color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: "url(https://source.unsplash.com/random)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -49,14 +47,15 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
+  console.log("ici", `${API_URL}${post.image[0].formats.small.url}`);
 
   return (
     <Paper
       className={classes.mainFeaturedPost}
-      style={{ backgroundImage: `url(${post.image})` }}
+      style={{
+        backgroundImage: `url(${API_URL}${post.image[0].formats.large.url})`,
+      }}
     >
-      {/* Increase the priority of the hero background image */}
-
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>

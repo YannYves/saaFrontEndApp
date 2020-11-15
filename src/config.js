@@ -8,6 +8,8 @@ export const API_URL_REGULAR_ARTICLE = "http://localhost:1337/mains";
 export const API_URL_SIDEBAR = "http://localhost:1337/sidebars";
 
 //RUCHER ECOLE
+export const API_URL_ECOLE = "http://localhost:1337/rucher-ecole";
+
 export const API_URL_MAIN_FEATURED_POST_RUCHER =
   "http://localhost:1337/rucher-ecole-main-featured-posts";
 
