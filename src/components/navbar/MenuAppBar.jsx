@@ -135,7 +135,7 @@ const MenuAppBar = (props) => {
   }, [value]);
 
   return (
-    <Grid nowrap>
+    <Grid nowrap width="100vw">
       <React.Fragment>
         <ElevationScroll>
           <HideOnScroll {...props}>
@@ -155,7 +155,12 @@ const MenuAppBar = (props) => {
                   </ThemeProvider>
                 </Grid>
 
-                <Grid container wrap="nowrap" className={classes.container}>
+                <Grid
+                  container
+                  width="100vw"
+                  wrap="nowrap"
+                  className={classes.container}
+                >
                   <Button
                     container
                     component={Link}
