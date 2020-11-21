@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
+import usToFrenchDate from "../../utils/date";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -27,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     margin: "0 auto",
+  },
+  date: {
+    ...theme.palette.date,
+    paddingTop: "16px",
+    paddingBottom: "16px",
   },
   media: {
     height: 140,
@@ -63,6 +69,9 @@ export default function CardPost({ post, link }) {
               component="p"
             >
               {post.content}
+            </Typography>
+            <Typography variant="h5" className={classes.date}>
+              {usToFrenchDate(post.date)}
             </Typography>
           </CardContent>
         </CardActionArea>

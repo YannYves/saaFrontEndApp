@@ -148,7 +148,7 @@ const fetchSidebarRucher = async () => {
 
 const fetchMainFeaturedPostVie = async () => {
   try {
-    return await dataFetcher(API_URL_FEATURED_POST_VIE);
+    return await dataFetcher(API_URL_MAIN_FEATURED_POST_VIE);
   } catch (error) {
     alert(error); // catches both errors
   }
@@ -156,7 +156,7 @@ const fetchMainFeaturedPostVie = async () => {
 
 const fetchFeaturedPostsVie = async () => {
   try {
-    return await dataFetcher(API_URL_MAIN_FEATURED_POST_VIE);
+    return await dataFetcher(API_URL_FEATURED_POST_VIE);
   } catch (error) {
     alert(error); // catches both errors
   }
@@ -198,7 +198,7 @@ const fetchSidebarVie = async () => {
 
 const fetchMainFeaturedPostNews = async () => {
   try {
-    return await dataFetcher(API_URL_FEATURED_POST_NEWS);
+    return await dataFetcher(API_URL_MAIN_FEATURED_POST_NEWS);
   } catch (error) {
     alert(error); // catches both errors
   }
@@ -206,7 +206,7 @@ const fetchMainFeaturedPostNews = async () => {
 
 const fetchFeaturedPostsNews = async () => {
   try {
-    return await dataFetcher(API_URL_MAIN_FEATURED_POST_NEWS);
+    return await dataFetcher(API_URL_FEATURED_POST_NEWS);
   } catch (error) {
     alert(error); // catches both errors
   }

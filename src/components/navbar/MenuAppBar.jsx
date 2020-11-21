@@ -158,7 +158,12 @@ const MenuAppBar = (props) => {
                   </ThemeProvider>
                 </Grid>
 
-                <Grid container wrap="nowrap" className={classes.container}>
+                <Grid
+                  container
+                  width="100vw"
+                  wrap="nowrap"
+                  className={classes.container}
+                >
                   <Button
                     container
                     component={Link}
