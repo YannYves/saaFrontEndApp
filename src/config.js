@@ -71,6 +71,8 @@ export const API_URL_SIDEBAR_UTILS = "http://localhost:1337/utils-sidebars";
 export const API_URL_MAIN_FEATURED_POST_ANNONCE =
   "http://localhost:1337/annonce-main-featured-posts";
 
+export const API_URL_ANNONCE_ALBUM = "http://localhost:1337/annonce-albums";
+
 export const API_URL_FEATURED_POST_ANNONCE =
   "http://localhost:1337/annonce-featured-posts";
 

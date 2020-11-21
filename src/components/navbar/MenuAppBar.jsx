@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    width: "100%",
+    width: "100vw",
     justifyContent: "flex-start",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "flex-end",
@@ -99,6 +99,9 @@ const useStyles = makeStyles((theme) => ({
         display: "none",
       },
     },
+  },
+  fullWidth: {
+    width: "100vw",
   },
 }));
 
@@ -135,7 +138,7 @@ const MenuAppBar = (props) => {
   }, [value]);
 
   return (
-    <Grid nowrap width="100vw">
+    <Grid nowrap className={classes.fullWidth}>
       <React.Fragment>
         <ElevationScroll>
           <HideOnScroll {...props}>

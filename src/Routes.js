@@ -32,22 +32,22 @@ export default function Routes() {
         <HomeAnnonce />
       </Route>
       <Route exact path="/post/:id">
-        <Post api={API.fetchOnePost} />
+        <Post link="/" api={API.fetchOnePost} />
       </Route>
-      <Route exact path="/vie/post/:id">
-        <Post api={API.fetchOnePostVie} />
+      <Route exact path="/la-vie-du-syndicat/post/:id">
+        <Post link="/la-vie-du-syndicat" api={API.fetchOnePostVie} />
       </Route>
       <Route exact path="/le-rucher-ecole/post/:id">
-        <Post api={API.fetchOnePostRucher} />
+        <Post link="/le-rucher-ecole" api={API.fetchOnePostRucher} />
       </Route>
       <Route exact path="/news/post/:id">
-        <Post api={API.fetchOnePostNews} />
+        <Post link="/news" api={API.fetchOnePostNews} />
       </Route>
       <Route exact path="/utile/post/:id">
-        <Post api={API.fetchOnePostUtils} />
+        <Post link="/utile" api={API.fetchOnePostUtils} />
       </Route>
       <Route exact path="/petites-annonce/post/:id">
-        <Post api={API.fetchOnePostAnnonce} />
+        <Post link="/petites-annonce" api={API.fetchOnePostAnnonce} />
       </Route>
       <Route>
         <NotFound />
