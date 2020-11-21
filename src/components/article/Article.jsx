@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Main(props) {
   const classes = useStyles();
   const { posts } = props;
+  console.log("Main -> posts", posts);
 
   return (
     <Grid item xs={12}>

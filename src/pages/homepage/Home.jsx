@@ -18,6 +18,7 @@ import CardPost from "../../components/post/CardPost";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
+import Footer from "../../components/footer/Footer";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -113,81 +114,80 @@ export default function Blog(props) {
       <CssBaseline />
       <Container maxWidth="lg">
         <Toolbar id="back-to-top-anchor" />
-        <main>
+
+        {isLoading ? (
+          <React.Fragment>
+            <Skeleton height={150} width="100%">
+              <div style={{ marginBottom: "2rem" }} />
+            </Skeleton>
+          </React.Fragment>
+        ) : (
+          mainFeaturedPost.map((post) => (
+            <MainFeaturedPost post={post} key={post.title} />
+          ))
+        )}
+
+        <Grid container spacing={4}>
           {isLoading ? (
-            <React.Fragment>
-              <Skeleton height={150} width="100%">
-                <div style={{ marginBottom: "2rem" }} />
-              </Skeleton>
-            </React.Fragment>
+            <Box width="50vw" margin={2}>
+              <Skeleton variant="rect" width="100%" height={118} />
+              <Skeleton width={60} />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </Box>
           ) : (
-            mainFeaturedPost.map((post) => (
-              <MainFeaturedPost post={post} key={post.title} />
+            featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
             ))
           )}
-
-          <Grid container spacing={4}>
-            {isLoading ? (
-              <Box width="50vw" margin={2}>
-                <Skeleton variant="rect" width="100%" height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              featuredPosts.map((post) => (
-                <FeaturedPost key={post.title} post={post} />
-              ))
-            )}
-          </Grid>
-          <Grid container spacing={4}>
-            {isLoading ? (
-              <Box width="65vw" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              posts.map((post) => (
-                <CardPost post={post} key={post.id} link="post" />
-              ))
-            )}
-            {isLoading ? (
-              <Box width="55w" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              sidebar.map((post) => <Sidebar post={post} key={post.id} />)
-            )}
-          </Grid>
-          <Grid container spacing={5} className={classes.mainGrid}>
-            {isLoading ? (
-              <Box width="100vw" margin={2}>
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              <Article posts={mainPost} />
-            )}
-          </Grid>
-        </main>
+        </Grid>
+        <Grid container spacing={4}>
+          {isLoading ? (
+            <Box width="65vw" margin={2}>
+              <Skeleton variant="rect" width={210} height={118} />
+              <Skeleton width={60} />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </Box>
+          ) : (
+            posts.map((post) => (
+              <CardPost post={post} key={post.id} link="post" />
+            ))
+          )}
+          {isLoading ? (
+            <Box width="55w" margin={2}>
+              <Skeleton variant="rect" width={210} height={118} />
+              <Skeleton width={60} />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </Box>
+          ) : (
+            sidebar.map((post) => <Sidebar post={post} key={post.id} />)
+          )}
+        </Grid>
+        <Grid container spacing={5} className={classes.mainGrid}>
+          {isLoading ? (
+            <Box width="100vw" margin={2}>
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </Box>
+          ) : (
+            <Article posts={mainPost} />
+          )}
+        </Grid>
       </Container>
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
@@ -195,6 +195,7 @@ export default function Blog(props) {
         </Fab>
       </ScrollTop>
       <Copyright />
+      <Footer />
     </React.Fragment>
   );
 }

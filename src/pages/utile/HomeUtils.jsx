@@ -17,6 +17,7 @@ import CardPost from "../../components/post/CardPost";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
+import Footer from "../../components/footer/Footer";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -193,6 +194,7 @@ export default function Blog(props) {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
+      <Footer />
     </React.Fragment>
   );
 }
