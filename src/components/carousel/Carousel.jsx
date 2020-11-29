@@ -1,0 +1,123 @@
+import React, { useState, useEffect } from "react";
+import ImageGallery from "react-image-gallery";
+import { makeStyles } from "@material-ui/core/styles";
+import Skeleton from "@material-ui/lab/Skeleton";
+import { Grid, Box, Paper, Divider } from "@material-ui/core";
+import PostContentLoader from "../loader/PosstContentLoader";
+import Typography from "@material-ui/core/Typography";
+import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+import usToFrenchDate from "../../utils/date";
+
+function Carousel({ images, content }) {
+  const [isLoading, setIsLoading] = useState(true);
+  console.log("lala", content);
+
+  const useStyles = makeStyles((theme) => ({
+    grid: {
+      margin: "16px",
+    },
+    date: {
+      ...theme.palette.date,
+      paddingTop: "16px",
+      paddingBottom: "16px",
+    },
+    content: {
+      padding: "24px",
+      marginTop: "24px",
+    },
+    titleContainer: {
+      width: "100vw",
+    },
+    title: {
+      padding: "24px",
+      marginTop: "24px",
+      textAlign: "center",
+    },
+    media: {
+      width: "auto",
+      maxWidth: "80vw",
+    },
+  }));
+
+  const classes = useStyles();
+
+  useEffect(() => {
+    fetchPost();
+    // eslint-disable-next-line
+  }, []);
+
+  const fetchPost = async () => {
+    setIsLoading(false);
+  };
+
+  return (
+    <Grid container className={classes.grid} justify="center">
+      <Paper className={classes.media}>
+        <Grid xs={12} item>
+          <Grid
+            spacing={3}
+            container
+            justify="center"
+            className={classes.container}
+          >
+            <Grid item xs={12}>
+              <Grid container spacing={4} justify="center">
+                <Grid item md={12} className={classes.titleContainer}>
+                  <Typography variant="h2" className={classes.title}>
+                    {isLoading ? <PostContentLoader /> : content.title}
+                  </Typography>
+                </Grid>
+
+                <Grid container md={12} justify="center">
+                  {isLoading ? (
+                    <Box>
+                      <Skeleton variant="rect" width="100%" heigh={400} />
+                    </Box>
+                  ) : (
+                    <Grid
+                      container
+                      justify="center"
+                      spacing={2}
+                      xs={12}
+                      className={classes.media}
+                    >
+                      <ImageGallery items={images} />
+                    </Grid>
+                  )}
+                </Grid>
+              </Grid>
+              <Grid
+                container
+                justify="center"
+                spacing={4}
+                md={12}
+                className={classes.content}
+              >
+                <Grid item>
+                  {isLoading ? (
+                    <Box>
+                      <Skeleton variant="text" />
+                      <Skeleton variant="text" />
+                      <Skeleton variant="text" />
+                    </Box>
+                  ) : (
+                    <Box>
+                      <Typography>{content.content}</Typography>
+                    </Box>
+                  )}
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="h5" className={classes.date}>
+                    {content.date ? usToFrenchDate(content.date) : ""}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Grid>
+  );
+}
+
+export default Carousel;
