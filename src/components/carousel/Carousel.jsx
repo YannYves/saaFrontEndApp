@@ -51,8 +51,8 @@ function Carousel({ images, content }) {
   };
 
   return (
-    <Grid container className={classes.grid}>
-      <Paper>
+    <Grid container className={classes.grid} justify="center">
+      <Paper className={classes.media}>
         <Grid xs={12} item>
           <Grid
             spacing={3}

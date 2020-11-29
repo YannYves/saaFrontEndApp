@@ -6,21 +6,25 @@ import {
   API_URL_REGULAR_POST,
   API_URL_REGULAR_ARTICLE,
   API_URL_SIDEBAR,
+  API_URL_ALBUM,
   API_URL_MAIN_FEATURED_POST_RUCHER,
   API_URL_FEATURED_POST_RUCHER,
   API_URL_REGULAR_POST_RUCHER,
   API_URL_REGULAR_ARTICLE_RUCHER,
   API_URL_SIDEBAR_RUCHER,
+  API_URL_RUCHER_ALBUM,
   API_URL_MAIN_FEATURED_POST_VIE,
   API_URL_FEATURED_POST_VIE,
   API_URL_REGULAR_POST_VIE,
   API_URL_REGULAR_ARTICLE_VIE,
   API_URL_SIDEBAR_VIE,
+  API_URL_VIE_ALBUM,
   API_URL_MAIN_FEATURED_POST_NEWS,
   API_URL_FEATURED_POST_NEWS,
   API_URL_REGULAR_POST_NEWS,
   API_URL_REGULAR_ARTICLE_NEWS,
   API_URL_SIDEBAR_NEWS,
+  API_URL_NEWS_ALBUM,
   API_URL_MAIN_FEATURED_POST_UTILS,
   API_URL_FEATURED_POST_UTILS,
   API_URL_REGULAR_POST_UTILS,
@@ -95,6 +99,14 @@ const findAllSideBar = async () => {
   }
 };
 
+const fetchCarousel = async () => {
+  try {
+    return await dataFetcher(API_URL_ALBUM);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+};
+
 // Rucher
 
 const fetchMainFeaturedPostRucher = async () => {
@@ -140,6 +152,14 @@ const fetchAllRegularArticlesRucher = async () => {
 const fetchSidebarRucher = async () => {
   try {
     return await dataFetcher(API_URL_SIDEBAR_RUCHER);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+};
+
+const fetchCarouselRucher = async () => {
+  try {
+    return await dataFetcher(API_URL_RUCHER_ALBUM);
   } catch (error) {
     alert(error); // catches both errors
   }
@@ -195,6 +215,13 @@ const fetchSidebarVie = async () => {
   }
 };
 
+const fetchCarouselVie = async () => {
+  try {
+    return await dataFetcher(API_URL_VIE_ALBUM);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+};
 // News
 
 const fetchMainFeaturedPostNews = async () => {
@@ -240,6 +267,14 @@ const fetchAllRegularArticlesNews = async () => {
 const fetchSidebarNews = async () => {
   try {
     return await dataFetcher(API_URL_SIDEBAR_NEWS);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+};
+
+const fetchCarouselNews = async () => {
+  try {
+    return await dataFetcher(API_URL_NEWS_ALBUM);
   } catch (error) {
     alert(error); // catches both errors
   }
@@ -357,6 +392,7 @@ export default {
   fetchOnePost,
   findAllRegularArticles,
   findAllSideBar,
+  fetchCarousel,
 
   fetchMainFeaturedPostRucher,
   fetchFeaturedPostsRucher,
@@ -364,6 +400,7 @@ export default {
   fetchOnePostRucher,
   fetchAllRegularArticlesRucher,
   fetchSidebarRucher,
+  fetchCarouselRucher,
 
   fetchMainFeaturedPostVie,
   fetchFeaturedPostsVie,
@@ -371,6 +408,7 @@ export default {
   fetchOnePostVie,
   fetchAllRegularArticlesVie,
   fetchSidebarVie,
+  fetchCarouselVie,
 
   fetchMainFeaturedPostNews,
   fetchFeaturedPostsNews,
@@ -378,6 +416,7 @@ export default {
   fetchOnePostNews,
   fetchAllRegularArticlesNews,
   fetchSidebarNews,
+  fetchCarouselNews,
 
   fetchMainFeaturedPostUtils,
   fetchFeaturedPostsUtils,
