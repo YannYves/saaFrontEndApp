@@ -31,6 +31,7 @@ import {
   API_URL_REGULAR_POST_ANNONCE,
   API_URL_REGULAR_ARTICLE_ANNONCE,
   API_URL_SIDEBAR_ANNONCE,
+  API_URL_CAROUSEL_ANNONCE,
 } from "../config";
 
 const dataFetcher = async (endpoint, id = "") => {
@@ -341,6 +342,14 @@ const fetchSidebarAnnonce = async () => {
   }
 };
 
+const fetchCarouselAnnonce = async () => {
+  try {
+    return await dataFetcher(API_URL_CAROUSEL_ANNONCE);
+  } catch (error) {
+    alert(error); // catches both errors
+  }
+};
+
 export default {
   findAllMainFeaturedPost,
   findAllFeaturedPost,
@@ -383,4 +392,5 @@ export default {
   fetchOnePostAnnonce,
   fetchAllRegularArticlesAnnonce,
   fetchSidebarAnnonce,
+  fetchCarouselAnnonce,
 };

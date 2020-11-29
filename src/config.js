@@ -82,3 +82,5 @@ export const API_URL_REGULAR_POST_ANNONCE =
 export const API_URL_REGULAR_ARTICLE_ANNONCE =
   "http://localhost:1337/annonce-regular-articles";
 export const API_URL_SIDEBAR_ANNONCE = "http://localhost:1337/annonce-sidebars";
+
+export const API_URL_CAROUSEL_ANNONCE = "http://localhost:1337/annonce-albums";

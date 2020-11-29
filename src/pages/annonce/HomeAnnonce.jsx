@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { Grid, Box, Container } from "@material-ui/core";
+import { Grid, Box, Container, Typography } from "@material-ui/core";
 
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
@@ -18,6 +18,9 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
+import Carousel from "../../components/carousel/Carousel";
+
+import carouselHelper from "../../utils/carouselHelper";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -69,6 +72,8 @@ export default function Blog(props) {
   const [posts, setPosts] = useState([]);
   const [articles, setArticles] = useState([]);
   const [sidebar, setSidebar] = useState([]);
+  const [carousel, setCarousel] = useState([]);
+  const [carouselContent, setCarouselContent] = useState({});
 
   const fetchMainFeaturedPostAnnonce = async () => {
     const data = await PostAPI.fetchMainFeaturedPostAnnonce();
@@ -100,12 +105,26 @@ export default function Blog(props) {
     setIsLoading(false);
   };
 
+  const fetchCarouselAnnonce = async () => {
+    const data = await PostAPI.fetchCarouselAnnonce();
+    console.log("la", data);
+    const carouselData = carouselHelper(data);
+    setCarouselContent({
+      content: data[0].content,
+      date: data[0].date,
+      title: data[0].title,
+    });
+    setCarousel(carouselData);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
     fetchFeaturedPostsAnnonce();
     fetchMainFeaturedPostAnnonce();
     fetchAllPostAnnonce();
     fetchAllRegularArticlesAnnonce();
     fetchSidebarAnnonce();
+    fetchCarouselAnnonce();
   }, []);
 
   return (
@@ -171,6 +190,27 @@ export default function Blog(props) {
               sidebar.map((post) => <Sidebar post={post} key={post.id} />)
             )}
           </Grid>
+          <Grid container spacing={5} className={classes.mainGrid}>
+            {isLoading ? (
+              <Box width="100vw" margin={2}>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+              </Box>
+            ) : (
+              <Carousel images={carousel} content={carouselContent} />
+            )}
+          </Grid>
+
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
               <Box width="100vw" margin={2}>
