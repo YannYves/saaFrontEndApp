@@ -27,6 +27,7 @@ function Post({ api, link }) {
       width: "100vw",
     },
     title: {
+      ...theme.typography.postPage.title,
       padding: "24px",
       marginTop: "24px",
       textAlign: "center",
@@ -34,6 +35,9 @@ function Post({ api, link }) {
     media: {
       width: "auto",
       maxWidth: "80vw",
+    },
+    button: {
+      ...theme.typography.button,
     },
   }));
 
@@ -63,6 +67,7 @@ function Post({ api, link }) {
           <Grid item xs={12}>
             <Link to={link}>
               <Button
+                className={classes.button}
                 variant="contained"
                 color="primary"
                 size="medium"

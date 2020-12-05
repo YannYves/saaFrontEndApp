@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
   firstTab: {
     ...theme.typography.tab,
+    fontSize: "1.2rem",
     minWidth: "1rem",
     padding: "1rem",
     [theme.breakpoints.up("sm")]: {
@@ -143,7 +144,7 @@ const MenuAppBar = (props) => {
         <ElevationScroll>
           <HideOnScroll {...props}>
             {/* add hide */}
-            <AppBar position="fixed" color="secondary">
+            <AppBar color="secondary">
               <Toolbar disableGutters>
                 <Grid className={classes.menuButton}>
                   <ThemeProvider theme={theme}>
@@ -179,36 +180,42 @@ const MenuAppBar = (props) => {
                     indicatorColor="primary"
                   >
                     <Tab
+                      disableRipple
                       className={classes.firstTab}
                       component={Link}
                       to="/"
                       label="Acceuil"
                     />
                     <Tab
+                      disableRipple
                       className={classes.secondTab}
                       component={Link}
                       to="/la-vie-du-syndicat"
                       label="La vie du syndicat"
                     />
                     <Tab
+                      disableRipple
                       className={classes.tab}
                       component={Link}
                       to="/le-rucher-ecole"
                       label="Le rucher ecole"
                     />
                     <Tab
+                      disableRipple
                       className={classes.tab}
                       component={Link}
                       to="/news"
                       label="Actualités"
                     />
                     <Tab
+                      disableRipple
                       className={classes.tab}
                       component={Link}
                       to="/utile"
                       label="Utile"
                     />
                     <Tab
+                      disableRipple
                       className={classes.tab}
                       component={Link}
                       to="/petites-annonce"

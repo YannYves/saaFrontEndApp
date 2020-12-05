@@ -1,6 +1,7 @@
 export default function carouselHelper(data) {
   let carouselData = [];
   let baseUrl = "http://localhost:1337";
+  // eslint-disable-next-line
   data.map((e) => {
     let imageArray = e.images;
     for (let i = 0; i < imageArray.length; i++) {
