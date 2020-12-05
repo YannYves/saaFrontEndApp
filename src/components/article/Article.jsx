@@ -6,7 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Markdown from "../markdown/Markdown";
 import usToFrenchDate from "../../utils/date";
-import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -21,10 +20,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Main(props) {
-  console.log(props);
   const classes = useStyles();
   const { posts } = props;
-  console.log("Main -> posts", posts);
 
   return (
     <Grid item xs={12}>

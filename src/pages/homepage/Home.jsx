@@ -11,7 +11,6 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
-import Copyright from "../../components/copyright/Copyright";
 import MainFeaturedPost from "../../components/post/MainFeaturePost";
 import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";

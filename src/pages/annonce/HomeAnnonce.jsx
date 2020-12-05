@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { Grid, Box, Container, Typography } from "@material-ui/core";
+import { Grid, Box, Container } from "@material-ui/core";
 
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";

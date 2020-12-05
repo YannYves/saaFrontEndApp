@@ -39,7 +39,6 @@ import {
 } from "../config";
 
 const dataFetcher = async (endpoint, id = "") => {
-  console.log(endpoint, id);
   try {
     const response = await axios.get(`${endpoint}/${id}`);
 

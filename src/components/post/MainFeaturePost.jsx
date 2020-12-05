@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
-  console.log("ici", `${API_URL}${post.image[0].formats.small.url}`);
 
   return (
     <Paper
