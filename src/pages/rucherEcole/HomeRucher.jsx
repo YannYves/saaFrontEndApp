@@ -106,7 +106,6 @@ export default function Blog(props) {
 
   const fetchCarouselRucher = async () => {
     const data = await PostAPI.fetchCarouselRucher();
-    console.log("la", data);
     const carouselData = carouselHelper(data);
     setCarouselContent({
       content: data[0].content,
