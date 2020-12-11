@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Box, Container } from "@material-ui/core";
-
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
-
 import MainFeaturedPost from "../../components/post/MainFeaturePost";
 import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";

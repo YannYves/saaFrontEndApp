@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Grid, Box, Container } from "@material-ui/core";
-
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
-
 import MainFeaturedPost from "../../components/post/MainFeaturePost";
 import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
@@ -19,8 +16,6 @@ import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
-
-import carouselHelper from "../../utils/carouselHelper";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -72,8 +67,7 @@ export default function Blog(props) {
   const [posts, setPosts] = useState([]);
   const [articles, setArticles] = useState([]);
   const [sidebar, setSidebar] = useState([]);
-  const [carousel, setCarousel] = useState([]);
-  const [carouselContent, setCarouselContent] = useState({});
+  const [carouselContent, setCarouselContent] = useState([]);
 
   const fetchMainFeaturedPostAnnonce = async () => {
     const data = await PostAPI.fetchMainFeaturedPostAnnonce();
@@ -107,14 +101,7 @@ export default function Blog(props) {
 
   const fetchCarouselAnnonce = async () => {
     const data = await PostAPI.fetchCarouselAnnonce();
-
-    const carouselData = carouselHelper(data);
-    setCarouselContent({
-      content: data[0].content,
-      date: data[0].date,
-      title: data[0].title,
-    });
-    setCarousel(carouselData);
+    setCarouselContent(data);
     setIsLoading(false);
   };
 
@@ -189,8 +176,7 @@ export default function Blog(props) {
             ) : (
               sidebar.map((post) => <Sidebar post={post} key={post.id} />)
             )}
-          </Grid>
-          <Grid container spacing={5} className={classes.mainGrid}>
+
             {isLoading ? (
               <Box width="100vw" margin={2}>
                 <Skeleton />
@@ -207,10 +193,9 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              <Carousel images={carousel} content={carouselContent} />
+              carouselContent.map((data) => <Carousel data={data} />)
             )}
           </Grid>
-
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
               <Box width="100vw" margin={2}>

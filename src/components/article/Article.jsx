@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Markdown from "../markdown/Markdown";
 import usToFrenchDate from "../../utils/date";
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   markdown: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "16px",
     paddingBottom: "16px",
   },
+  container: {
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(3),
+  },
 }));
 
 export default function Main(props) {
@@ -27,13 +32,15 @@ export default function Main(props) {
     <Grid item xs={12}>
       {posts.map((post) => (
         <React.Fragment>
-          <Typography variant="h6" gutterBottom>
-            {post.title}
-          </Typography>
-          <Typography variant="h5" className={classes.date}>
-            {usToFrenchDate(post.date)}
-          </Typography>
-          <Markdown className={classes.markdown}>{post.content}</Markdown>
+          <Box className={classes.container}>
+            <Typography variant="h6" gutterBottom>
+              {post.title}
+            </Typography>
+            <Typography variant="h5" className={classes.date}>
+              {usToFrenchDate(post.date)}
+            </Typography>
+            <Markdown className={classes.markdown}>{post.content}</Markdown>
+          </Box>
           <Divider />
         </React.Fragment>
       ))}
