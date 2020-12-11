@@ -184,7 +184,7 @@ const MenuAppBar = (props) => {
                       className={classes.firstTab}
                       component={Link}
                       to="/"
-                      label="Acceuil"
+                      label="Home"
                     />
                     <Tab
                       disableRipple

@@ -8,9 +8,11 @@ import Typography from "@material-ui/core/Typography";
 import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "./Carousel.css";
 import usToFrenchDate from "../../utils/date";
+import carouselHelper from "../../utils/carouselHelper";
 
-function Carousel({ images, content }) {
+function Carousel({ data }) {
   const [isLoading, setIsLoading] = useState(true);
+  const carouselImages = carouselHelper(data);
 
   const useStyles = makeStyles((theme) => ({
     date: {
@@ -34,6 +36,10 @@ function Carousel({ images, content }) {
     media: {
       width: "auto",
       maxWidth: "100%",
+      marginTop: theme.spacing(3),
+    },
+    grid: {
+      padding: "8px",
     },
   }));
 
@@ -49,7 +55,7 @@ function Carousel({ images, content }) {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className={classes.grid}>
       <Grid container className={classes.grid} justify="center" maxWidth="lg">
         <Paper className={classes.media}>
           <Grid xs={12} item>
@@ -63,10 +69,9 @@ function Carousel({ images, content }) {
                 <Grid container spacing={4} justify="center">
                   <Grid item md={12} className={classes.titleContainer}>
                     <Typography variant="h2" className={classes.title}>
-                      {isLoading ? <PostContentLoader /> : content.title}
+                      {isLoading ? <PostContentLoader /> : data.title}
                     </Typography>
                   </Grid>
-
                   <Grid container md={12} justify="center">
                     {isLoading ? (
                       <Box>
@@ -80,7 +85,7 @@ function Carousel({ images, content }) {
                         xs={12}
                         className={classes.media}
                       >
-                        <ImageGallery items={images} />
+                        <ImageGallery items={carouselImages} />
                       </Grid>
                     )}
                   </Grid>
@@ -101,13 +106,13 @@ function Carousel({ images, content }) {
                       </Box>
                     ) : (
                       <Box>
-                        <Typography>{content.content}</Typography>
+                        <Typography>{data.content}</Typography>
                       </Box>
                     )}
                   </Grid>
                   <Grid item xs={12}>
                     <Typography variant="h5" className={classes.date}>
-                      {content.date ? usToFrenchDate(content.date) : ""}
+                      {data.date ? usToFrenchDate(data.date) : ""}
                     </Typography>
                   </Grid>
                 </Grid>
