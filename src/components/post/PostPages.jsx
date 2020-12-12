@@ -7,13 +7,16 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import { Grid, Box, Button, Toolbar, CardMedia } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import PostContentLoader from "../loader/PosstContentLoader";
+import checkImagesMainFeaturedPost from "../../validators/checkImages";
 
 import Typography from "@material-ui/core/Typography";
+import usToFrenchDate from "../../utils/date";
 
 function Post({ api, link }) {
   const { id } = useParams();
   const [postState, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  console.log("postState", postState);
 
   const useStyles = makeStyles((theme) => ({
     grid: {
@@ -38,6 +41,11 @@ function Post({ api, link }) {
     },
     button: {
       ...theme.typography.button,
+    },
+    date: {
+      ...theme.palette.date,
+      paddingTop: "16px",
+      paddingBottom: "16px",
     },
   }));
 
@@ -103,7 +111,7 @@ function Post({ api, link }) {
                       className={classes.media}
                       component="img"
                       alt="a post"
-                      image={API_URL + postState.image[0].formats.small.url}
+                      image={API_URL + checkImagesMainFeaturedPost(postState)}
                       title="a post"
                     />
                   </Grid>
