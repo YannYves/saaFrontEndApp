@@ -2,7 +2,12 @@ import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
 
 const usToFrenchDate = (date) => {
-  const frenchDate = format(parseISO(date), "PPPP", { locale: fr });
+  let frenchDate;
+  if (!date) {
+    frenchDate = "problème de date ";
+  } else {
+    frenchDate = format(parseISO(date), "PPPP", { locale: fr });
+  }
   return frenchDate;
 };
 

@@ -11,6 +11,7 @@ import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import usToFrenchDate from "../../utils/date";
+import checkImagesMainFeaturedPost from "../../validators/checkImages";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -40,18 +41,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CardPost({ post, link }) {
+  const frenchDate = usToFrenchDate(post.date);
+  console.log("frenchDate", frenchDate);
+
   const classes = useStyles();
+  const imageUrl = checkImagesMainFeaturedPost(post);
+
   return (
     <Grid item xs={12} sm={4} lg={3}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={
-              post.image !== null
-                ? API_URL + post.image[0].formats.small.url
-                : "..."
-            }
+            image={`${API_URL}${imageUrl}`}
           />
           <CardContent>
             <Typography
@@ -71,7 +73,7 @@ export default function CardPost({ post, link }) {
               {post.content}
             </Typography>
             <Typography variant="h5" className={classes.date}>
-              {usToFrenchDate(post.date)}
+              {frenchDate}
             </Typography>
           </CardContent>
         </CardActionArea>
