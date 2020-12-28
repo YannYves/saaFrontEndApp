@@ -16,7 +16,6 @@ function Post({ api, link }) {
   const { id } = useParams();
   const [postState, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  console.log("postState", postState);
 
   const useStyles = makeStyles((theme) => ({
     grid: {
@@ -46,6 +45,7 @@ function Post({ api, link }) {
       ...theme.palette.date,
       paddingTop: "16px",
       paddingBottom: "16px",
+      textAlign: "center",
     },
   }));
 
@@ -92,7 +92,15 @@ function Post({ api, link }) {
                   {isLoading ? <PostContentLoader /> : postState.title}
                 </Typography>
               </Grid>
-
+              <Grid item md={12} className={classes.titleContainer}>
+                <Typography variant="h2" className={classes.date}>
+                  {isLoading ? (
+                    <PostContentLoader />
+                  ) : (
+                    usToFrenchDate(postState.date)
+                  )}
+                </Typography>
+              </Grid>
               <Grid item md={12}>
                 {isLoading ? (
                   <Box>
