@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CardPost({ post, link }) {
   const frenchDate = usToFrenchDate(post.date);
-  console.log("frenchDate", frenchDate);
 
   const classes = useStyles();
   const imageUrl = checkImagesMainFeaturedPost(post);
@@ -70,7 +69,7 @@ export default function CardPost({ post, link }) {
               className={classes.text}
               component="p"
             >
-              {post.content}
+              {post.content.slice(0, 50) + "..."}
             </Typography>
             <Typography variant="h5" className={classes.date}>
               {frenchDate}
