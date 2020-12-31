@@ -1,29 +1,16 @@
 import React from "react";
 import "./App.css";
-import ActionComponent from "./components/ActionComponent";
-import OutputComponent from "./components/OutputComponent";
+import MenuAppBar from "./components/navbar/MenuAppBar";
+import Routes from "./Routes";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./UI/Theme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <OutputComponent />
-        <ActionComponent />
-        <div>
-          Icons made by{" "}
-          <a
-            href="https://www.flaticon.com/authors/dinosoftlabs"
-            title="DinosoftLabs"
-          >
-            DinosoftLabs
-          </a>{" "}
-          from{" "}
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <MenuAppBar />
+      <Routes />
+    </ThemeProvider>
   );
 }
 
