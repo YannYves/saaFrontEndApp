@@ -69,6 +69,8 @@ export default function Blog(props) {
   const [articles, setArticles] = useState([]);
   const [carouselContent, setCarouselContent] = useState([]);
 
+  console.log("carouselContent", carouselContent);
+
   const findAllMainFeaturedPost = async () => {
     const data = await PostAPI.findAllMainFeaturedPost();
     setMainFeaturedPost(data);
