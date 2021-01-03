@@ -1,9 +1,9 @@
 export default function carouselHelper(data) {
+  console.log("data", data);
   let carouselData = [];
   // eslint-disable-next-line
 
   const baseUrl = process.env.REACT_APP_BASE_URL;
-
   let imageObj = data.images;
   // eslint-disable-next-line
   imageObj.map((images) => {
