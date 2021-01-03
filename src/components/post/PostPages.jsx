@@ -119,7 +119,7 @@ function Post({ api, link }) {
                       className={classes.media}
                       component="img"
                       alt="a post"
-                      image={API_URL + checkImagesMainFeaturedPost(postState)}
+                      image={checkImagesMainFeaturedPost(postState)}
                       title="a post"
                     />
                   </Grid>
