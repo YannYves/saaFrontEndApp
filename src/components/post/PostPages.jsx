@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams, Link } from "react-router-dom";
-import { API_URL } from "../../config";
 
 import Skeleton from "@material-ui/lab/Skeleton";
 import { Grid, Box, Button, Toolbar, CardMedia } from "@material-ui/core";
