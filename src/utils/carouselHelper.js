@@ -13,8 +13,10 @@ export default function carouselHelper(data) {
       carouselObj.original = baseUrl + images.formats.large.url;
     } else if (images.formats.medium) {
       carouselObj.original = baseUrl + images.formats.medium.url;
-    } else {
+    } else if (images.formats.small) {
       carouselObj.original = baseUrl + images.formats.small.url;
+    } else {
+      carouselObj.original = baseUrl + images.url;
     }
     carouselData.push(carouselObj);
   });
