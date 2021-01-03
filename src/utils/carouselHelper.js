@@ -1,5 +1,4 @@
 export default function carouselHelper(data) {
-  console.log("data", data);
   let carouselData = [];
   // eslint-disable-next-line
 
