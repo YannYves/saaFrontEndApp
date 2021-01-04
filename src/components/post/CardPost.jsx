@@ -50,10 +50,7 @@ export default function CardPost({ post, link }) {
     <Grid item xs={12} sm={4} lg={3}>
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={`${API_URL}${imageUrl}`}
-          />
+          <CardMedia className={classes.media} image={`${imageUrl}`} />
           <CardContent>
             <Typography
               gutterBottom
