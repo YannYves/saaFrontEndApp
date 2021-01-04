@@ -27,8 +27,9 @@ export const StyledMenu = styled.nav`
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol"';
 
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
+    text-align: center;
     padding: 2rem 0;
     font-weight: bold;
     letter-spacing: 0.5rem;
