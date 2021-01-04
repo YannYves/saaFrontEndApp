@@ -54,7 +54,7 @@ export default function MainFeaturedPost(props) {
     <Paper
       className={classes.mainFeaturedPost}
       style={{
-        backgroundImage: `url(${API_URL}${imageUrl})`,
+        backgroundImage: `url(${imageUrl})`,
       }}
     >
       <div className={classes.overlay} />
