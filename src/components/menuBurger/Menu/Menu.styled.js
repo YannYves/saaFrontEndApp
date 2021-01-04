@@ -11,7 +11,7 @@ export const StyledMenu = styled.nav`
   text-align: left;
   padding: 2rem;
   position: absolute;
-  opacity: 0.92;
+  opacity: 1;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
@@ -32,7 +32,7 @@ export const StyledMenu = styled.nav`
     text-align: center;
     padding: 2rem 0;
     font-weight: bold;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.3rem;
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
