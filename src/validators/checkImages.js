@@ -17,7 +17,6 @@ function checkImagesMainFeaturedPost(posts) {
     }
     checkImages = posts.image[0].formats[largest].url;
   }
-  console.log("checkImages", checkImages);
   return checkImages;
 }
 
