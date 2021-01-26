@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { API_URL } from "../../config";
 import checkImagesMainFeaturedPost from "../../validators/checkImages";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +53,7 @@ export default function MainFeaturedPost(props) {
     <Paper
       className={classes.mainFeaturedPost}
       style={{
-        backgroundImage: `url(${API_URL}${imageUrl})`,
+        backgroundImage: `url(${imageUrl})`,
       }}
     >
       <div className={classes.overlay} />

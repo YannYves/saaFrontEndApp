@@ -4,6 +4,7 @@ const saaPrimary = "#F2B705";
 const saaSencondary = "#D97904";
 const titleColor = "#eeeeee";
 const textColor = "#253858";
+const menuColor = "#191919";
 const dateColor = "#5c6f84";
 
 const mainFont =
@@ -39,7 +40,7 @@ export default createMuiTheme({
       textTransform: "none",
       fontWeight: "400",
       fontSize: "0.8rem",
-      color: `${textColor}`,
+      color: `${menuColor}`,
     },
     sideBar: {
       fontFamily: `${mainFont}`,

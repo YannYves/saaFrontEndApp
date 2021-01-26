@@ -7,7 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import usToFrenchDate from "../../utils/date";
@@ -50,10 +49,7 @@ export default function CardPost({ post, link }) {
     <Grid item xs={12} sm={4} lg={3}>
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia
-            className={classes.media}
-            image={`${API_URL}${imageUrl}`}
-          />
+          <CardMedia className={classes.media} image={`${imageUrl}`} />
           <CardContent>
             <Typography
               gutterBottom
