@@ -112,7 +112,9 @@ function Carousel({ data }) {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography variant="h5" className={classes.date}>
-                      {data.date ? usToFrenchDate(data.date) : ""}
+                      {usToFrenchDate(data.date)
+                        ? usToFrenchDate(data.date)
+                        : ""}
                     </Typography>
                   </Grid>
                 </Grid>

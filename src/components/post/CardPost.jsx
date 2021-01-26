@@ -57,7 +57,7 @@ export default function CardPost({ post, link }) {
               className={classes.title}
               component="h2"
             >
-              {post.title}
+              {post.title ? post.title : ""}
             </Typography>
             <Typography
               variant="body2"
@@ -65,7 +65,7 @@ export default function CardPost({ post, link }) {
               className={classes.text}
               component="p"
             >
-              {post.content.slice(0, 50) + "..."}
+              {post.content ? post.content.slice(0, 50) + "..." : ""}
             </Typography>
             <Typography variant="h5" className={classes.date}>
               {frenchDate}

@@ -67,7 +67,7 @@ export default function MainFeaturedPost(props) {
               gutterBottom
               className={classes.title}
             >
-              {post.title}
+              {post.title ? post.title : ""}
             </Typography>
             <Typography
               variant="h5"
@@ -75,7 +75,7 @@ export default function MainFeaturedPost(props) {
               paragraph
               className={classes.description}
             >
-              {post.description}
+              {post.description ? post.description : ""}
             </Typography>
           </div>
         </Grid>
