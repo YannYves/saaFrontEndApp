@@ -89,15 +89,23 @@ function Post({ api, link }) {
             <Grid container spacing={4} justify="center">
               <Grid item md={12} className={classes.titleContainer}>
                 <Typography variant="h2" className={classes.title}>
-                  {isLoading ? <PostContentLoader /> : postState.title}
+                  {isLoading ? (
+                    <PostContentLoader />
+                  ) : postState.title ? (
+                    postState.title
+                  ) : (
+                    ""
+                  )}
                 </Typography>
               </Grid>
               <Grid item md={12} className={classes.titleContainer}>
                 <Typography variant="h2" className={classes.date}>
                   {isLoading ? (
                     <PostContentLoader />
-                  ) : (
+                  ) : usToFrenchDate(postState.date) ? (
                     usToFrenchDate(postState.date)
+                  ) : (
+                    ""
                   )}
                 </Typography>
               </Grid>
@@ -119,7 +127,11 @@ function Post({ api, link }) {
                       className={classes.media}
                       component="img"
                       alt="a post"
-                      image={API_URL + checkImagesMainFeaturedPost(postState)}
+                      image={
+                        API_URL + checkImagesMainFeaturedPost(postState)
+                          ? API_URL + checkImagesMainFeaturedPost(postState)
+                          : ""
+                      }
                       title="a post"
                     />
                   </Grid>
@@ -141,8 +153,10 @@ function Post({ api, link }) {
                       <Skeleton variant="text" />
                       <Skeleton variant="text" />
                     </Box>
-                  ) : (
+                  ) : postState.content ? (
                     postState.content
+                  ) : (
+                    ""
                   )}
                 </Typography>
               </Grid>

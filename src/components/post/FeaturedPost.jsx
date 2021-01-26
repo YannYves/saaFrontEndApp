@@ -56,7 +56,7 @@ export default function FeaturedPost({ post }) {
             component="h2"
             className={classes.title}
           >
-            {post.title}
+            {post.title ? post.title : ""}
           </Typography>
           <Typography
             variant="body2"
@@ -64,10 +64,10 @@ export default function FeaturedPost({ post }) {
             component="p"
             gutterBottom
           >
-            {post.description}
+            {post.description ? post.description : ""}
           </Typography>
           <Typography variant="h5" className={classes.date}>
-            {frenchDate}
+            {frenchDate ? frenchDate : ""}
           </Typography>
         </CardContent>
       </Card>

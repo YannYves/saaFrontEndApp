@@ -34,12 +34,14 @@ export default function Main(props) {
         <React.Fragment>
           <Box className={classes.container}>
             <Typography variant="h6" gutterBottom>
-              {post.title}
+              {post.title ? post.title : ""}
             </Typography>
             <Typography variant="h5" className={classes.date}>
-              {usToFrenchDate(post.date)}
+              {usToFrenchDate(post.date) ? usToFrenchDate(post.date) : ""}
             </Typography>
-            <Markdown className={classes.markdown}>{post.content}</Markdown>
+            <Markdown className={classes.markdown}>
+              {post.content ? post.content : ""}
+            </Markdown>
           </Box>
           <Divider />
         </React.Fragment>
