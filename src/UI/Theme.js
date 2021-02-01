@@ -6,6 +6,7 @@ const titleColor = "#eeeeee";
 const textColor = "#253858";
 const menuColor = "#191919";
 const dateColor = "#5c6f84";
+const subTitleColor = "#958c7e";
 
 const mainFont =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
@@ -17,6 +18,7 @@ export default createMuiTheme({
       saaPrimary: `${saaPrimary}`,
       titleColor: `${titleColor}`,
       textColor: `${textColor}`,
+      subTitleColor: `${subTitleColor}`,
     },
     primary: {
       main: `${saaSencondary}`,
@@ -34,6 +36,10 @@ export default createMuiTheme({
   typography: {
     markdown: {
       fontFamily: `${mainFont}`,
+      fontSize: "1rem",
+      fontWeight: 400,
+      lineHeight: 1.5,
+      letterSpacing: "0.00938em",
     },
     tab: {
       fontFamily: `${mainFont}`,
@@ -125,7 +131,7 @@ export default createMuiTheme({
         fontFamily: `${mainFont}`,
         textTransform: "none",
         fontWeight: "400",
-        fontSize: "1.5rem",
+        fontSize: "4.5rem",
       },
     },
 

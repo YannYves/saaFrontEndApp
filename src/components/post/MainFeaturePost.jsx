@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
+    height: 350,
+    [theme.breakpoints.down("xs")]: {
+      height: 250,
+    },
   },
   overlay: {
     position: "absolute",
@@ -19,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "rgba(0,0,0,.3)",
   },
   mainFeaturedPostContent: {
     position: "relative",
@@ -47,13 +50,22 @@ const useStyles = makeStyles((theme) => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
-  const imageUrl = checkImagesMainFeaturedPost(post);
+
+  let imageUrl;
+  let backgroundImage;
+
+  if (post.image.length !== 0) {
+    imageUrl = checkImagesMainFeaturedPost(post);
+    backgroundImage = `url(${imageUrl})`;
+  } else {
+    backgroundImage = "none";
+  }
 
   return (
     <Paper
       className={classes.mainFeaturedPost}
       style={{
-        backgroundImage: `url(${imageUrl})`,
+        backgroundImage,
       }}
     >
       <div className={classes.overlay} />
