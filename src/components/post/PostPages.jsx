@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams, Link } from "react-router-dom";
-
 import Skeleton from "@material-ui/lab/Skeleton";
 import { Grid, Box, Button, Toolbar, CardMedia } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import PostContentLoader from "../loader/PosstContentLoader";
-import checkImagesMainFeaturedPost from "../../validators/checkImages";
 
+import checkImagesMainFeaturedPost from "../../validators/checkImages";
 import Typography from "@material-ui/core/Typography";
 import usToFrenchDate from "../../utils/date";
+import Markdown from "../markdown/Markdown";
 
 function Post({ api, link }) {
   const { id } = useParams();
@@ -45,6 +45,10 @@ function Post({ api, link }) {
       paddingTop: "16px",
       paddingBottom: "16px",
       textAlign: "center",
+    },
+    markdown: {
+      ...theme.typography.markdown,
+      padding: theme.spacing(3, 0),
     },
   }));
 
@@ -126,7 +130,11 @@ function Post({ api, link }) {
                       className={classes.media}
                       component="img"
                       alt="a post"
-                      image={checkImagesMainFeaturedPost(postState)}
+                      image={
+                        postState.image.length !== 0
+                          ? checkImagesMainFeaturedPost(postState)
+                          : ""
+                      }
                       title="a post"
                     />
                   </Grid>
@@ -149,7 +157,12 @@ function Post({ api, link }) {
                       <Skeleton variant="text" />
                     </Box>
                   ) : postState.content ? (
-                    postState.content
+                    <Markdown
+                      className={classes.markdown}
+                      key={postState.content.substring(0, 40)}
+                    >
+                      {postState.content}
+                    </Markdown>
                   ) : (
                     ""
                   )}

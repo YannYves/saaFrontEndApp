@@ -41,9 +41,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CardPost({ post, link }) {
   const frenchDate = usToFrenchDate(post.date);
-
   const classes = useStyles();
-  const imageUrl = checkImagesMainFeaturedPost(post);
+  let imageUrl;
+  post.image.length !== 0
+    ? (imageUrl = checkImagesMainFeaturedPost(post))
+    : (imageUrl = "");
 
   return (
     <Grid item xs={12} sm={4} lg={3}>

@@ -4,7 +4,7 @@ import { fr } from "date-fns/locale";
 const usToFrenchDate = (date) => {
   let frenchDate;
   if (!date) {
-    frenchDate = "problème de date ";
+    frenchDate = "";
   } else {
     frenchDate = format(parseISO(date), "PPPP", { locale: fr });
   }
