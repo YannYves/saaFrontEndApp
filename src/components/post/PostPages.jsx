@@ -23,32 +23,41 @@ function Post({ api, link }) {
     content: {
       padding: "24px",
       marginTop: "24px",
+      ...theme.typography.featured.text,
+      color: theme.palette.common.subTitleColor,
+      fontSize: "1.875rem",
     },
     titleContainer: {
       width: "100vw",
     },
     title: {
-      ...theme.typography.postPage.title,
       padding: "24px",
-      marginTop: "24px",
-      textAlign: "center",
+      ...theme.typography.featured.title,
+      color: theme.palette.primary.main,
+      textTransform: "capitalize",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "2.5em",
+      },
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "2em",
+      },
     },
     media: {
       width: "auto",
       maxWidth: "80vw",
+      borderRadius: "3px",
     },
     button: {
       ...theme.typography.button,
     },
     date: {
       ...theme.palette.date,
-      paddingTop: "16px",
-      paddingBottom: "16px",
-      textAlign: "center",
+      paddingTop: "1rem",
     },
     markdown: {
       ...theme.typography.markdown,
       padding: theme.spacing(3, 0),
+      fontSize: "1.7rem",
     },
   }));
 
@@ -101,17 +110,7 @@ function Post({ api, link }) {
                   )}
                 </Typography>
               </Grid>
-              <Grid item md={12} className={classes.titleContainer}>
-                <Typography variant="h2" className={classes.date}>
-                  {isLoading ? (
-                    <PostContentLoader />
-                  ) : usToFrenchDate(postState.date) ? (
-                    usToFrenchDate(postState.date)
-                  ) : (
-                    ""
-                  )}
-                </Typography>
-              </Grid>
+
               <Grid item md={12}>
                 {isLoading ? (
                   <Box>
@@ -141,13 +140,7 @@ function Post({ api, link }) {
                 )}
               </Grid>
             </Grid>
-            <Grid
-              container
-              justify="center"
-              spacing={4}
-              md={12}
-              className={classes.content}
-            >
+            <Grid container spacing={4} md={12} className={classes.content}>
               <Grid item>
                 <Typography>
                   {isLoading ? (
@@ -167,6 +160,17 @@ function Post({ api, link }) {
                     ""
                   )}
                 </Typography>
+                <Grid item md={12} className={classes.titleContainer}>
+                  <Typography variant="h2" className={classes.date}>
+                    {isLoading ? (
+                      <PostContentLoader />
+                    ) : usToFrenchDate(postState.date) ? (
+                      usToFrenchDate(postState.date)
+                    ) : (
+                      ""
+                    )}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

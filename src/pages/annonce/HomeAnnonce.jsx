@@ -8,7 +8,6 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
-import MainFeaturedPost from "../../components/post/MainFeaturePost";
 import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -16,6 +15,7 @@ import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
+import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -127,8 +127,8 @@ export default function Blog(props) {
               </Skeleton>
             </React.Fragment>
           ) : (
-            mainFeaturedPost.map((post) => (
-              <MainFeaturedPost post={post} key={post.title} />
+            mainFeaturedPost.map((image) => (
+              <BackgroundImageParallax image={image} />
             ))
           )}
 

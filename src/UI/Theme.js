@@ -30,7 +30,6 @@ export default createMuiTheme({
       color: `${dateColor}`,
       fontWeight: "500",
       fontSize: "1rem",
-      fontStyle: "italic",
     },
   },
   typography: {
@@ -100,20 +99,21 @@ export default createMuiTheme({
     carousel: {
       text: {
         fontFamily: `${mainFont}`,
-        textTransform: "none",
-        fontWeight: "450",
+        fontWeight: "250",
         fontSize: "1.5rem",
         color: `${textColor}`,
+        textAlign: "left",
       },
       title: {
         fontFamily: `${mainFont}`,
-        textTransform: "none",
-        fontWeight: "400",
-        fontSize: "2rem",
-        color: `${textColor}`,
+        fontWeight: "350",
+        fontSize: "1.875rem",
+        padding: "2em 24px",
+        marginTop: "2rem",
+        textAlign: "center",
+        textTransform: "capitalize",
       },
     },
-
     featured: {
       link: {
         fontFamily: `${mainFont}`,
@@ -131,7 +131,8 @@ export default createMuiTheme({
         fontFamily: `${mainFont}`,
         textTransform: "none",
         fontWeight: "400",
-        fontSize: "4.5rem",
+        fontSize: "3.5rem",
+        marginTop: "2em",
       },
     },
 

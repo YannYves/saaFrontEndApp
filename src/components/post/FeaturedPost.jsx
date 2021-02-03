@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles((theme) => ({
-  card: {},
+  grid: {},
   cardDetails: {
     flex: 1,
   },
@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     textTransform: "capitalize",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "3.5em",
+      fontSize: "2.5em",
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: "2.5em",
+      fontSize: "2em",
     },
   },
 }));
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FeaturedPost({ post }) {
   const classes = useStyles();
   return (
-    <Grid item xs={12} className={classes.card}>
+    <Grid item xs={12} className={classes.grid}>
       <CardContent>
         <Typography
           gutterBottom

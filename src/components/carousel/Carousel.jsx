@@ -17,21 +17,21 @@ function Carousel({ data }) {
   const useStyles = makeStyles((theme) => ({
     date: {
       ...theme.palette.date,
-      paddingTop: "16px",
-      paddingBottom: "16px",
+      padding: "0 0 1rem 1rem  ",
     },
     content: {
-      padding: "24px",
-      marginTop: "24px",
+      ...theme.typography.carousel.text,
+      padding: "0 0rem 1rem 1rem ",
+      marginTop: "4rem",
     },
     titleContainer: {
       width: "100vw",
     },
     title: {
       ...theme.typography.carousel.title,
-      padding: "24px",
-      marginTop: "24px",
+      padding: "2em 24px",
       textAlign: "center",
+      color: theme.palette.primary.main,
     },
     media: {
       width: "auto",
@@ -90,13 +90,7 @@ function Carousel({ data }) {
                     )}
                   </Grid>
                 </Grid>
-                <Grid
-                  container
-                  justify="center"
-                  spacing={4}
-                  md={12}
-                  className={classes.content}
-                >
+                <Grid container spacing={1} md={12} className={classes.content}>
                   <Grid item>
                     {isLoading ? (
                       <Box>
@@ -106,7 +100,9 @@ function Carousel({ data }) {
                       </Box>
                     ) : (
                       <Box>
-                        <Typography>{data.content}</Typography>
+                        <Typography className={classes.content}>
+                          {data.content}
+                        </Typography>
                       </Box>
                     )}
                   </Grid>
