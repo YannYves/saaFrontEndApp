@@ -16,12 +16,7 @@ export default function BackgroundImageParallax(image) {
 
   return (
     <div>
-      <Parallax
-        bgImage={backgroundImage}
-        blur={{ min: -1, max: 2 }}
-        strength={100}
-        style={style}
-      >
+      <Parallax bgImage={backgroundImage} strength={100} style={style}>
         <div style={{ height: 400 }}></div>
       </Parallax>
     </div>

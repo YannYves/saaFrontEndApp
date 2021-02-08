@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { Grid, Box, Container } from "@material-ui/core";
+import { Grid, Box, Container, Divider } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -15,6 +15,7 @@ import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
 import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
+import Fade from "react-reveal/Fade";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -123,7 +124,7 @@ export default function Blog(props) {
             ))
           )}
 
-          <Grid container spacing={4}>
+          <Grid spacing={4}>
             {isLoading ? (
               <Box width="50vw" margin={2}>
                 <Skeleton variant="rect" width="100%" height={118} />
@@ -134,7 +135,9 @@ export default function Blog(props) {
               </Box>
             ) : (
               featuredPosts.map((post) => (
-                <FeaturedPost key={post.title} post={post} />
+                <Fade bottom>
+                  <FeaturedPost key={post.title} post={post} />
+                </Fade>
               ))
             )}
           </Grid>
@@ -149,7 +152,11 @@ export default function Blog(props) {
               </Box>
             ) : (
               posts.map((post) => (
-                <CardPost post={post} key={post.id} link="utile/post" />
+                <Grid item margin={2} xs={12} sm={6} lg={4}>
+                  <Fade bottom>
+                    <CardPost post={post} key={post.id} link="utile/post" />
+                  </Fade>
+                </Grid>
               ))
             )}
             {isLoading ? (
@@ -161,9 +168,17 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              sidebar.map((post) => <Sidebar post={post} key={post.id} />)
+              sidebar.map((post) => (
+                <Grid item margin={2} xs={12} sm={6} lg={4}>
+                  <Fade bottom>
+                    <Sidebar post={post} key={post.id} />
+                  </Fade>
+                </Grid>
+              ))
             )}
           </Grid>
+          <Divider light width="100%" margin={4} />
+
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
               <Box width="100vw" margin={2}>

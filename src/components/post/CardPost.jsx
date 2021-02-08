@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -19,23 +18,26 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     ...theme.typography.card.text,
-    color: theme.palette.primary.main,
   },
   title: {
     ...theme.typography.card.title,
-    color: theme.palette.primary.main,
+    color: theme.palette.common.titleColor,
+    textDecoration: "underline",
+    marginBottom: "0.5rem",
   },
   root: {
     maxWidth: 345,
     margin: "0 auto",
+    paddingBottom: "0rem",
   },
   date: {
-    ...theme.palette.date,
-    paddingTop: "16px",
-    paddingBottom: "16px",
+    paddingBottom: "0.5rem",
   },
   media: {
     height: 140,
+  },
+  item: {
+    padding: "16px",
   },
 }));
 
@@ -48,32 +50,35 @@ export default function CardPost({ post, link }) {
     : (imageUrl = "");
 
   return (
-    <Grid item xs={12} sm={4} lg={3}>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia className={classes.media} image={`${imageUrl}`} />
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant="h5"
-              className={classes.title}
-              component="h2"
-            >
-              {post.title ? post.title : ""}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              className={classes.text}
-              component="p"
-            >
-              {post.content ? post.content.slice(0, 50) + "..." : ""}
-            </Typography>
-            <Typography variant="h5" className={classes.date}>
-              {frenchDate}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+    <Grid item className={classes.item} spacing={4}>
+      <Card className={classes.root} disableRipple>
+        <CardMedia className={classes.media} image={`${imageUrl}`} />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            className={classes.title}
+            component="h2"
+          >
+            {post.title ? post.title : ""}
+          </Typography>
+          <Typography
+            className={classes.date}
+            component="p"
+            variant="body2"
+            color="textSecondary"
+          >
+            {frenchDate}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={classes.text}
+            component="p"
+          >
+            {post.content ? post.content.slice(0, 50) + "..." : ""}
+          </Typography>
+        </CardContent>
         <CardActions>
           <Link to={`/${link}/${post.id}`}>
             <Button size="small" className={classes.link}>

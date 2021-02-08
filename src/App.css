@@ -1,16 +1,24 @@
 .App-logo {
-  height: 40vmin;
+  height: 50px;
   pointer-events: none;
+  width: 50px;
+  margin: 0 auto;
+  color: #ffb800;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
 a {
   text-decoration: none;
+}
+
+.MuiTab-textColorInherit.Mui-selected {
+  text-decoration: underline;
+  color: #2a357e;
 }
 
 .App-header {
