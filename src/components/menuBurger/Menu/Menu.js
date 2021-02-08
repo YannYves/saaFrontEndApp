@@ -1,6 +1,7 @@
 import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
+import AppLogo from "../../logo/AppLogo";
 
 const Menu = ({ open, ...props }) => {
   const isHidden = open ? true : false;
@@ -8,26 +9,29 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+      <a href="/" tabIndex={tabIndex}>
+        <AppLogo />
+      </a>
       <a href="/la-vie-du-syndicat" tabIndex={tabIndex}>
-        <span aria-hidden="true">🐝</span>
+        <span aria-hidden="true"> 🐝 </span>
         La vie du syndicat
       </a>
       <a href="/le-rucher-ecole" tabIndex={tabIndex}>
-        <span aria-hidden="true">👨‍🎓</span>
+        <span aria-hidden="true"> 👨‍🎓 </span>
         Le rucher école
       </a>
       <a href="/news" tabIndex={tabIndex}>
-        <span aria-hidden="true">📰</span>
+        <span aria-hidden="true"> 📰 </span>
         Actualités
       </a>
 
       <a href="/utile" tabIndex={tabIndex}>
-        <span aria-hidden="true">🔨</span>
+        <span aria-hidden="true"> 🔨 </span>
         Utile
       </a>
       <a href="/petites-annonce" tabIndex={tabIndex}>
-        <span aria-hidden="true">🛒</span>
-        petites annonces
+        <span aria-hidden="true"> 🛒 </span>
+        Petites annonces
       </a>
     </StyledMenu>
   );

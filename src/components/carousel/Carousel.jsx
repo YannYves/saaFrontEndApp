@@ -29,9 +29,13 @@ function Carousel({ data }) {
     },
     title: {
       ...theme.typography.carousel.title,
-      padding: "2em 24px",
-      textAlign: "center",
-      color: theme.palette.primary.main,
+      textTransform: "capitalize",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "2rem",
+      },
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "1.5rem",
+      },
     },
     media: {
       width: "auto",

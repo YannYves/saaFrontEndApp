@@ -6,13 +6,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Button, Grid, Slide, useScrollTrigger } from "@material-ui/core";
 import { ThemeProvider } from "styled-components";
-
 import { Burger, Menu } from "../menuBurger";
 import { useOnClickOutside } from "../../utils/hooks";
 import FocusLock from "react-focus-lock";
-
 import { theme } from "../../styledComponents/theme";
-
 import { Link } from "react-router-dom";
 
 function HideOnScroll(props) {
@@ -45,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.tab,
     minWidth: "1rem",
     marginLeft: "25px",
+    fontWeight: "550",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
       display: "none",
@@ -53,24 +51,25 @@ const useStyles = makeStyles((theme) => ({
 
   firstTab: {
     ...theme.typography.tab,
+    fontWeight: "500",
+
     fontSize: "1.2rem",
     minWidth: "1rem",
     padding: "1rem",
     [theme.breakpoints.up("sm")]: {
       width: "100%",
     },
-
     [theme.breakpoints.down("sm")]: {
       justifyContent: "flex-end",
       width: "auto",
     },
-
     display: "flex",
   },
 
   secondTab: {
     ...theme.typography.tab,
     minWidth: "1rem",
+    fontWeight: "550",
     marginLeft: "25px",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
@@ -88,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
+    selected: {
+      fontWeight: "1000",
+    },
     width: "100vw",
     justifyContent: "flex-start",
     [theme.breakpoints.down("sm")]: {
@@ -140,7 +142,7 @@ const MenuAppBar = (props) => {
 
   return (
     <Grid nowrap className={classes.fullWidth}>
-      <React.Fragment>
+      <React.Fragment className={classes.selected}>
         <ElevationScroll>
           <HideOnScroll {...props}>
             {/* add hide */}
@@ -177,7 +179,6 @@ const MenuAppBar = (props) => {
                     value={value}
                     onChange={handleChange}
                     className={classes.firstTab}
-                    indicatorColor="primary"
                   >
                     <Tab
                       disableRipple

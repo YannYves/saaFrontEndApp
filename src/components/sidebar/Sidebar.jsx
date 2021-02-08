@@ -14,7 +14,14 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     ...theme.typography.sideBar,
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
+  },
+  item: {
+    margin: "16px auto",
+    maxWidth: "345px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
   },
 }));
 
@@ -23,7 +30,7 @@ export default function Sidebar(props) {
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={12} lg={3}>
+    <Grid item className={classes.item}>
       <Paper elevation={0} className={classes.sidebarAboutBox}>
         <Typography variant="h6" gutterBottom>
           {post.Linktitle}

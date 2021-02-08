@@ -9,7 +9,6 @@ export const StyledMenu = styled.nav`
   height: 100vh;
   width: 100vw;
   text-align: left;
-  padding: 2rem;
   position: absolute;
   opacity: 1;
   top: 0;
@@ -25,21 +24,20 @@ export const StyledMenu = styled.nav`
   a {
     font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol"';
-
-    font-size: 1.5rem;
-    text-transform: uppercase;
+      "Segoe UI Symbol';
+    text-transform: none;
+    font-size: 2rem;
     text-align: center;
-    padding: 2rem 0;
-    font-weight: bold;
-    letter-spacing: 0.3rem;
+    padding: 2rem;
+    font-weight: 575;
+    letter-spacing: 0.2rem;
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
 
     @media (max-width: ${({ theme }) => theme.mobileSmall}) {
-      font-size: 1rem;
-      text-align: center;
+      font-size: 1.5rem;
+      text-align: left;
     }
 
     &:hover {

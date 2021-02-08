@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Grid } from "@material-ui/core";
+import { Grid, Divider } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,10 +18,16 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.featured.text,
     color: theme.palette.common.subTitleColor,
     fontSize: "1.875rem",
+    marginBottom: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5em",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.3em",
+    },
   },
   title: {
     ...theme.typography.featured.title,
-    color: theme.palette.primary.main,
     textTransform: "capitalize",
     [theme.breakpoints.down("sm")]: {
       fontSize: "2.5em",
@@ -56,6 +62,7 @@ export default function FeaturedPost({ post }) {
           {post.description ? post.description : ""}
         </Typography>
       </CardContent>
+      <Divider light />
     </Grid>
   );
 }

@@ -1,12 +1,12 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const saaPrimary = "#F2B705";
+const saaPrimary = "#FFB800";
 const saaSencondary = "#D97904";
-const titleColor = "#eeeeee";
+const titleColor = "#2A357E";
 const textColor = "#253858";
-const menuColor = "#191919";
 const dateColor = "#5c6f84";
-const subTitleColor = "#958c7e";
+const subTitleColor = "#FFB800";
+const backgroundColor = "#EEEEEF";
 
 const mainFont =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
@@ -15,10 +15,11 @@ export default createMuiTheme({
   palette: {
     common: {
       saaSencondary: `${saaSencondary}`,
-      saaPrimary: `${saaPrimary}`,
+      saaPrimary: `${subTitleColor}`,
       titleColor: `${titleColor}`,
       textColor: `${textColor}`,
       subTitleColor: `${subTitleColor}`,
+      backgroundColor: `${backgroundColor}`,
     },
     primary: {
       main: `${saaSencondary}`,
@@ -36,7 +37,7 @@ export default createMuiTheme({
     markdown: {
       fontFamily: `${mainFont}`,
       fontSize: "1rem",
-      fontWeight: 400,
+      fontWeight: 420,
       lineHeight: 1.5,
       letterSpacing: "0.00938em",
     },
@@ -45,7 +46,7 @@ export default createMuiTheme({
       textTransform: "none",
       fontWeight: "400",
       fontSize: "0.8rem",
-      color: `${menuColor}`,
+      color: `${titleColor}`,
     },
     sideBar: {
       fontFamily: `${mainFont}`,
@@ -54,30 +55,27 @@ export default createMuiTheme({
     button: {
       fontFamily: `${mainFont}`,
       textTransform: "none",
-      fontWeight: "450",
+      fontWeight: "550",
+      padding: "1rem",
       fontSize: "1rem",
-      color: "#DFE1E5",
+      color: `${dateColor}`,
     },
     card: {
       link: {
         fontFamily: `${mainFont}`,
         textTransform: "none",
-        fontWeight: "500",
+        fontWeight: "600",
         fontSize: "1rem",
-        color: `${textColor}`,
+        color: `${titleColor}`,
       },
       text: {
         fontFamily: `${mainFont}`,
         textTransform: "none",
-        fontWeight: "450",
-        fontSize: "1rem",
         color: `${textColor}`,
       },
       title: {
+        textTransform: "capitalize",
         fontFamily: `${mainFont}`,
-        textTransform: "none",
-        fontWeight: "400",
-        fontSize: "1.5rem",
       },
     },
     postPage: {
@@ -107,18 +105,20 @@ export default createMuiTheme({
       title: {
         fontFamily: `${mainFont}`,
         fontWeight: "350",
-        fontSize: "1.875rem",
+        fontSize: "2rem",
         padding: "2em 24px",
         marginTop: "2rem",
         textAlign: "center",
         textTransform: "capitalize",
+        color: `${titleColor}`,
+        textDecoration: "underline",
       },
     },
     featured: {
       link: {
         fontFamily: `${mainFont}`,
         textTransform: "none",
-        fontWeight: "800",
+        fontWeight: "700",
         fontSize: "1rem",
       },
       text: {
@@ -128,11 +128,12 @@ export default createMuiTheme({
         fontSize: "1rem",
       },
       title: {
+        color: `${titleColor}`,
         fontFamily: `${mainFont}`,
         textTransform: "none",
-        fontWeight: "400",
+        fontWeight: "500",
         fontSize: "3.5rem",
-        marginTop: "2em",
+        marginTop: "1.5em",
       },
     },
 
