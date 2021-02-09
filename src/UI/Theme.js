@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const saaPrimary = "#FFB800";
-const saaSencondary = "#D97904";
+const saaSencondary = "#FFB800";
 const titleColor = "#2A357E";
 const textColor = "#253858";
 const dateColor = "#5c6f84";

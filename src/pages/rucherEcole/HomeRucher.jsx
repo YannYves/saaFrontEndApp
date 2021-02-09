@@ -17,6 +17,7 @@ import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
 import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
 import Fade from "react-reveal/Fade";
+import Wave from "../../components/wave/Wave";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -128,8 +129,8 @@ export default function Blog(props) {
               </Skeleton>
             </React.Fragment>
           ) : (
-            mainFeaturedPost.map((image) => (
-              <BackgroundImageParallax image={image} />
+            mainFeaturedPost.map((image, i) => (
+              <BackgroundImageParallax image={image} key={i} />
             ))
           )}
 
@@ -143,9 +144,9 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              featuredPosts.map((post) => (
+              featuredPosts.map((post, i) => (
                 <Fade bottom>
-                  <FeaturedPost key={post.title} post={post} />
+                  <FeaturedPost key={i} post={post} />
                 </Fade>
               ))
             )}
@@ -160,14 +161,10 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              posts.map((post) => (
+              posts.map((post, i) => (
                 <Grid item margin={2} xs={12} sm={6} lg={4}>
                   <Fade bottom>
-                    <CardPost
-                      post={post}
-                      key={post.id}
-                      link="le-rucher-ecole/post"
-                    />
+                    <CardPost post={post} key={i} link="le-rucher-ecole/post" />
                   </Fade>
                 </Grid>
               ))
@@ -181,10 +178,10 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              sidebar.map((post) => (
+              sidebar.map((post, i) => (
                 <Grid item margin={2} xs={12} sm={6} lg={4}>
                   <Fade bottom>
-                    <Sidebar post={post} key={post.id} />
+                    <Sidebar post={post} key={i} />
                   </Fade>
                 </Grid>
               ))
@@ -208,10 +205,10 @@ export default function Blog(props) {
                 <Skeleton />
               </Box>
             ) : (
-              carouselContent.map((data) => (
+              carouselContent.map((data, i) => (
                 <Grid item xs={12}>
                   <Fade bottom>
-                    <Carousel data={data} />
+                    <Carousel data={data} key={i} />
                   </Fade>
                 </Grid>
               ))
@@ -245,6 +242,7 @@ export default function Blog(props) {
         </Fab>
       </ScrollTop>
       <Footer />
+      <Wave />
     </React.Fragment>
   );
 }

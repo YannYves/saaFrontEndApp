@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     // marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
-    width: "100vw",
+    width: "auto",
   },
   font: {
     ...theme.typography.footer.description,
