@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   secondTab: {
     ...theme.typography.tab,
     minWidth: "1rem",
-    fontWeight: "550",
+    fontWeight: "500",
     marginLeft: "25px",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
@@ -142,7 +142,7 @@ const MenuAppBar = (props) => {
 
   return (
     <Grid nowrap className={classes.fullWidth}>
-      <React.Fragment className={classes.selected}>
+      <React.Fragment>
         <ElevationScroll>
           <HideOnScroll {...props}>
             {/* add hide */}

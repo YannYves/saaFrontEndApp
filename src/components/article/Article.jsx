@@ -30,8 +30,8 @@ export default function Main(props) {
 
   return (
     <Grid item xs={12}>
-      {posts.map((post) => (
-        <React.Fragment>
+      {posts.map((post, i) => (
+        <React.Fragment key={i}>
           <Box className={classes.container}>
             <Typography variant="h6" gutterBottom>
               {post.title ? post.title : ""}
