@@ -48,12 +48,14 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  toolbar: {
+    height: "4.1rem",
+  },
 
   firstTab: {
     ...theme.typography.tab,
     fontWeight: "500",
-
-    fontSize: "1.2rem",
+    fontSize: "1.4rem",
     minWidth: "1rem",
     padding: "1rem",
     [theme.breakpoints.up("sm")]: {
@@ -68,8 +70,6 @@ const useStyles = makeStyles((theme) => ({
 
   secondTab: {
     ...theme.typography.tab,
-    minWidth: "1rem",
-    fontWeight: "500",
     marginLeft: "25px",
     marginRight: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
@@ -81,12 +81,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   containerTabs: {
+    padding: "4px",
+
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
 
   container: {
+    margin: "16px",
     selected: {
       fontWeight: "1000",
     },
@@ -147,7 +150,7 @@ const MenuAppBar = (props) => {
           <HideOnScroll {...props}>
             {/* add hide */}
             <AppBar color="secondary">
-              <Toolbar disableGutters>
+              <Toolbar disableGutters className={classes.toolbar}>
                 <Grid className={classes.menuButton}>
                   <ThemeProvider theme={theme}>
                     <FocusLock disabled={!open}>

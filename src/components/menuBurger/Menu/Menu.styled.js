@@ -22,9 +22,7 @@ export const StyledMenu = styled.nav`
   }
 
   a {
-    font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol';
+    font-family: "Gillsans";
     text-transform: none;
     font-size: 2rem;
     text-align: center;

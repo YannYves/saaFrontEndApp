@@ -52,7 +52,11 @@ export default function CardPost({ post, link }) {
   return (
     <Grid item className={classes.item} spacing={4}>
       <Card className={classes.root} disableRipple>
-        <CardMedia className={classes.media} image={`${imageUrl}`} />
+        <CardMedia
+          className={classes.media}
+          image={`${imageUrl}`}
+          title={post.title}
+        />
         <CardContent>
           <Typography
             gutterBottom
