@@ -5,7 +5,11 @@ import { Grid, Divider } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles((theme) => ({
-  grid: {},
+  grid: {
+    backgroundColor: "#eeeeee",
+    borderRadius: "5px",
+    margin: "16px",
+  },
   cardDetails: {
     flex: 1,
   },
@@ -17,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     ...theme.typography.featured.text,
     color: theme.palette.common.subTitleColor,
+    fontWeight: "380",
     fontSize: "1.875rem",
     marginBottom: "1.5rem",
     [theme.breakpoints.down("sm")]: {

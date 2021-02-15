@@ -77,7 +77,9 @@ const Social = () => {
               </Grid>
               <Grid item>
                 <Link color="inherit" href={network.link}>
-                  <Grid item>{network.name}</Grid>
+                  <Grid className={classes.font} item>
+                    {network.name}
+                  </Grid>
                 </Link>
               </Grid>
             </Grid>

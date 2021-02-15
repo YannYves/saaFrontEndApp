@@ -10,6 +10,7 @@ const backgroundColor = "#EEEEEF";
 
 const mainFont =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+const titleFont = "Gillsans";
 
 export default createMuiTheme({
   palette: {
@@ -42,10 +43,10 @@ export default createMuiTheme({
       letterSpacing: "0.00938em",
     },
     tab: {
-      fontFamily: `${mainFont}`,
+      fontFamily: `${titleFont}`,
       textTransform: "none",
-      fontWeight: "400",
-      fontSize: "0.8rem",
+      fontWeight: "600",
+      fontSize: "0.9rem",
       color: `${titleColor}`,
     },
     sideBar: {
@@ -75,7 +76,7 @@ export default createMuiTheme({
       },
       title: {
         textTransform: "capitalize",
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
       },
     },
     postPage: {
@@ -103,7 +104,7 @@ export default createMuiTheme({
         textAlign: "left",
       },
       title: {
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
         fontWeight: "350",
         fontSize: "2rem",
         padding: "2em 24px",
@@ -129,7 +130,7 @@ export default createMuiTheme({
       },
       title: {
         color: `${titleColor}`,
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
         textTransform: "none",
         fontWeight: "500",
         fontSize: "3.5rem",
@@ -151,7 +152,7 @@ export default createMuiTheme({
         fontSize: "1rem",
       },
       title: {
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
         textTransform: "none",
         fontWeight: "500",
         fontSize: "1.5rem",
@@ -160,7 +161,7 @@ export default createMuiTheme({
 
     footer: {
       description: {
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
         textTransform: "none",
         fontWeight: "450",
         fontSize: "1rem",
@@ -174,7 +175,7 @@ export default createMuiTheme({
         color: `${textColor}`,
       },
       title: {
-        fontFamily: `${mainFont}`,
+        fontFamily: `${titleFont}`,
         textTransform: "none",
         fontWeight: "500",
         fontSize: "1.5rem",

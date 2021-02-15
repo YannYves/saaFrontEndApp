@@ -89,7 +89,10 @@ function Carousel({ data }) {
                         xs={12}
                         className={classes.media}
                       >
-                        <ImageGallery items={carouselImages} />
+                        <ImageGallery
+                          items={carouselImages}
+                          originalAlt={data.title}
+                        />
                       </Grid>
                     )}
                   </Grid>

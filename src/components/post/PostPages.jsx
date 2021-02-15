@@ -81,6 +81,7 @@ function Post({ api, link }) {
       marginBottom: "2rem",
       ...theme.typography.featured.title,
       textTransform: "capitalize",
+      textAlign: "center",
       [theme.breakpoints.down("sm")]: {
         fontSize: "2.5em",
       },
@@ -188,13 +189,16 @@ function Post({ api, link }) {
                       className={classes.media}
                       component="img"
                       maxWidth="lg"
-                      alt="a post"
+                      alt={postState.title ? postState.title : "missing title"}
                       image={
                         postState.image.length !== 0
-                          ? checkImagesMainFeaturedPost(postState)
+                          ? "http://localhost:1337" +
+                            checkImagesMainFeaturedPost(postState)
                           : ""
                       }
-                      title="a post"
+                      title={
+                        postState.title ? postState.title : "missing title"
+                      }
                     />
                   </Grid>
                 )}
