@@ -192,8 +192,7 @@ function Post({ api, link }) {
                       alt={postState.title ? postState.title : "missing title"}
                       image={
                         postState.image.length !== 0
-                          ? "http://localhost:1337" +
-                            checkImagesMainFeaturedPost(postState)
+                          ? checkImagesMainFeaturedPost(postState)
                           : ""
                       }
                       title={
