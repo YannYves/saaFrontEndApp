@@ -112,7 +112,6 @@ export default createMuiTheme({
         textAlign: "center",
         textTransform: "capitalize",
         color: `${titleColor}`,
-        textDecoration: "underline",
       },
     },
     featured: {

@@ -8,9 +8,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
-import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
@@ -68,21 +66,13 @@ export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [articles, setArticles] = useState([]);
-  const [sidebar, setSidebar] = useState([]);
   const [carouselContent, setCarouselContent] = useState([]);
 
   const fetchMainFeaturedPostAnnonce = async () => {
     const data = await PostAPI.fetchMainFeaturedPostAnnonce();
     setMainFeaturedPost(data);
-    setIsLoading(false);
-  };
-
-  const fetchFeaturedPostsAnnonce = async () => {
-    const data = await PostAPI.fetchFeaturedPostsAnnonce();
-    setFeaturedPosts(data);
     setIsLoading(false);
   };
 
@@ -98,12 +88,6 @@ export default function Blog(props) {
     setIsLoading(false);
   };
 
-  const fetchSidebarAnnonce = async () => {
-    const data = await PostAPI.fetchSidebarAnnonce();
-    setSidebar(data);
-    setIsLoading(false);
-  };
-
   const fetchCarouselAnnonce = async () => {
     const data = await PostAPI.fetchCarouselAnnonce();
     setCarouselContent(data);
@@ -111,11 +95,9 @@ export default function Blog(props) {
   };
 
   useEffect(() => {
-    fetchFeaturedPostsAnnonce();
     fetchMainFeaturedPostAnnonce();
     fetchAllPostAnnonce();
     fetchAllRegularArticlesAnnonce();
-    fetchSidebarAnnonce();
     fetchCarouselAnnonce();
   }, []);
 
@@ -137,23 +119,6 @@ export default function Blog(props) {
             ))
           )}
 
-          <Grid spacing={4} className={classes.backgroundColor}>
-            {isLoading ? (
-              <Box width="50vw" margin={2}>
-                <Skeleton variant="rect" width="100%" height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              featuredPosts.map((post, i) => (
-                <Fade bottom>
-                  <FeaturedPost key={i} post={post} />
-                </Fade>
-              ))
-            )}
-          </Grid>
           <Grid container spacing={4}>
             {isLoading ? (
               <Box width="65vw" margin={2}>
@@ -165,33 +130,14 @@ export default function Blog(props) {
               </Box>
             ) : (
               posts.map((post, i) => (
-                <Grid item margin={2} xs={12} sm={6} lg={4}>
+                <Grid item margin={2} xs={12} sm={6} md={4} lg={3}>
                   <Fade bottom>
                     <CardPost post={post} key={i} link="petites-annonce/post" />
                   </Fade>
                 </Grid>
               ))
             )}
-            {isLoading ? (
-              <Box width="55w" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              sidebar.map((post, i) => (
-                <Grid item margin={2} xs={12} sm={6} lg={4}>
-                  <Fade bottom>
-                    <Sidebar post={post} key={i} />
-                  </Fade>
-                </Grid>
-              ))
-            )}
-
             <Divider light width="100%" margin={4} />
-
             {isLoading ? (
               <Box width="100vw" margin={2}>
                 <Skeleton />

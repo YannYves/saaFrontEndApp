@@ -86,10 +86,14 @@ function Carousel({ data }) {
                         container
                         justify="center"
                         spacing={2}
-                        xs={12}
+                        maxWidth="lg"
+                        xs={10}
                         className={classes.media}
                       >
                         <ImageGallery
+                          stopPropagation={true}
+                          showFullscreenButton={false}
+                          showPlayButton={false}
                           items={carouselImages}
                           originalAlt={data.title}
                         />
