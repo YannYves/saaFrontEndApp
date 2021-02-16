@@ -69,7 +69,7 @@ export default function BackgroundImageParallax(image) {
               color="inherit"
               gutterBottom
             >
-              {image.image.title}
+              {image.image.title ? image.image.title : image.image.titre}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
               {image.image.description}
