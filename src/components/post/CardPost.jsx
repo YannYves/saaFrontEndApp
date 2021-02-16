@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     ...theme.typography.card.title,
     color: theme.palette.common.titleColor,
-    textDecoration: "underline",
+    textDecoration: "Capitalize",
     marginBottom: "0.5rem",
   },
   root: {

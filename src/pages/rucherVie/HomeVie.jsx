@@ -9,9 +9,7 @@ import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
 import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
@@ -66,21 +64,13 @@ export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [sidebar, setSidebar] = useState([]);
   const [articles, setArticles] = useState([]);
   const [carouselContent, setCarouselContent] = useState([]);
 
   const fetchMainFeaturedPostVie = async () => {
     const data = await PostAPI.fetchMainFeaturedPostVie();
     setMainFeaturedPost(data);
-    setIsLoading(false);
-  };
-
-  const fetchFeaturedPostsVie = async () => {
-    const data = await PostAPI.fetchFeaturedPostsVie();
-    setFeaturedPosts(data);
     setIsLoading(false);
   };
 
@@ -96,12 +86,6 @@ export default function Blog(props) {
     setIsLoading(false);
   };
 
-  const fetchSidebarVie = async () => {
-    const data = await PostAPI.fetchSidebarVie();
-    setSidebar(data);
-    setIsLoading(false);
-  };
-
   const fetchCarouselVie = async () => {
     const data = await PostAPI.fetchCarouselVie();
     setCarouselContent(data);
@@ -109,11 +93,9 @@ export default function Blog(props) {
   };
 
   useEffect(() => {
-    fetchFeaturedPostsVie();
     fetchMainFeaturedPostVie();
     fetchAllPostVie();
     fetchAllRegularArticlesVie();
-    fetchSidebarVie();
     fetchCarouselVie();
   }, []);
 
@@ -135,23 +117,6 @@ export default function Blog(props) {
             ))
           )}
 
-          <Grid spacing={4}>
-            {isLoading ? (
-              <Box width="50vw" margin={2}>
-                <Skeleton variant="rect" width="100%" height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              featuredPosts.map((post, i) => (
-                <Fade bottom>
-                  <FeaturedPost key={i} post={post} />
-                </Fade>
-              ))
-            )}
-          </Grid>
           <Grid container spacing={4}>
             {isLoading ? (
               <Box width="65vw" margin={2}>
@@ -174,26 +139,7 @@ export default function Blog(props) {
                 </Grid>
               ))
             )}
-            {isLoading ? (
-              <Box width="55w" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              sidebar.map((post, i) => (
-                <Grid item margin={2} xs={12} sm={6} lg={4}>
-                  <Fade bottom>
-                    <Sidebar post={post} key={i} />
-                  </Fade>
-                </Grid>
-              ))
-            )}
-
             <Divider light width="100%" margin={4} />
-
             {isLoading ? (
               <Box width="100vw" margin={2}>
                 <Skeleton />

@@ -8,7 +8,6 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Toolbar from "@material-ui/core/Toolbar";
-import FeaturedPost from "../../components/post/FeaturedPost";
 import CardPost from "../../components/post/CardPost";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Article from "../../components/article/Article";
@@ -64,7 +63,6 @@ export default function Blog(props) {
   const classes = useStyles();
   const [isLoading, setIsLoading] = useState(true);
   const [mainFeaturedPost, setMainFeaturedPost] = useState([]);
-  const [featuredPosts, setFeaturedPosts] = useState([]);
   const [posts, setPosts] = useState([]);
   const [articles, setArticles] = useState([]);
   const [sidebar, setSidebar] = useState([]);
@@ -72,12 +70,6 @@ export default function Blog(props) {
   const fetchMainFeaturedPostUtils = async () => {
     const data = await PostAPI.fetchMainFeaturedPostUtils();
     setMainFeaturedPost(data);
-    setIsLoading(false);
-  };
-
-  const fetchFeaturedPostsUtils = async () => {
-    const data = await PostAPI.fetchFeaturedPostsUtils();
-    setFeaturedPosts(data);
     setIsLoading(false);
   };
 
@@ -100,7 +92,6 @@ export default function Blog(props) {
   };
 
   useEffect(() => {
-    fetchFeaturedPostsUtils();
     fetchMainFeaturedPostUtils();
     fetchAllPostUtils();
     fetchAllRegularArticlesUtils();
@@ -125,23 +116,6 @@ export default function Blog(props) {
             ))
           )}
 
-          <Grid spacing={4}>
-            {isLoading ? (
-              <Box width="50vw" margin={2}>
-                <Skeleton variant="rect" width="100%" height={118} />
-                <Skeleton width={60} />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-              </Box>
-            ) : (
-              featuredPosts.map((post, i) => (
-                <Fade bottom>
-                  <FeaturedPost key={i} post={post} />
-                </Fade>
-              ))
-            )}
-          </Grid>
           <Grid container spacing={4}>
             {isLoading ? (
               <Box width="65vw" margin={2}>
