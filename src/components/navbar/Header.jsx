@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitleFont: {
     ...theme.typography.card.title,
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "0.83em",
-    },
   },
   toolbarSecondary: {
     justifyContent: "space-between",
@@ -36,24 +33,23 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h2"
-          variant="h5"
+        <Link
+          component="a"
+          variant="body3"
+          href={backToHome}
           color="inherit"
           align="center"
-          noWrap
           className={classes.toolbarTitle}
         >
-          <Link
-            component="h3"
-            variant="body3"
-            href={backToHome}
-            color="inherit"
+          <Typography
+            component="h2"
+            variant="h5"
+            noWrap
             className={classes.toolbarTitleFont}
           >
             {title}
-          </Link>
-        </Typography>
+          </Typography>
+        </Link>
       </Toolbar>
       <Toolbar
         component="nav"
