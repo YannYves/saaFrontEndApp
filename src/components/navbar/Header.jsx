@@ -61,7 +61,7 @@ export default function Header(props) {
             color="inherit"
             noWrap
             key={section.title}
-            variant="body2"
+            variant="body1"
             href={section.url}
             className={classes.toolbarLink}
           >
