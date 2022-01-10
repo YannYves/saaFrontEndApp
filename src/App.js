@@ -8,7 +8,7 @@ import ReactGA from 'react-ga';
 import RouteChangeTracker from './analytics/RouteChangeTracker';
 // analytics
 
-ReactGA.initialize(process.env.TRACKING_ID);
+ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
 
 function App() {
   return (
