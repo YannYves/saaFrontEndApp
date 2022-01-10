@@ -22,6 +22,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //   composeWithDevTools(applyMiddleware(sagaMiddleware))
 // );
 
+// analytics
 const ga4react = new GA4React(process.env.REACT_APP_TRACKING_ID);
 
 (async (_) => {
