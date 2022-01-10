@@ -5,7 +5,6 @@ import Routes from './Routes';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './UI/Theme';
 import RouteChangeTracker from './analytics/RouteChangeTracker';
-// analytics
 
 function App() {
   return (
