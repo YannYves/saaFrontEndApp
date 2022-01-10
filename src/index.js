@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import GA4React from 'react-ga4';
 
 // REDUX READY
 // import rootReducer from './reducers';
@@ -21,14 +22,24 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //   composeWithDevTools(applyMiddleware(sagaMiddleware))
 // );
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const ga4react = new GA4React(process.env.REACT_APP_TRACKING_ID);
+
+(async (_) => {
+  await ga4react
+    .initialize()
+    .then((res) => console.log('Analytics Success.'))
+    .catch((err) => console.log('Analytics Failure.'))
+    .finally(() => {
+      ReactDOM.render(
+        <React.StrictMode>
+          <Router>
+            <App />
+          </Router>
+        </React.StrictMode>,
+        document.getElementById('root')
+      );
+    });
+})();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
