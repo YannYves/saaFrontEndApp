@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import GA4React from 'react-ga4';
+import GA4React from 'ga-4-react';
 
 // REDUX READY
 // import rootReducer from './reducers';
