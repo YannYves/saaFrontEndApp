@@ -1,12 +1,12 @@
-import React from "react";
-import { Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import "./wave.css";
+import React from 'react';
+import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import './wave.css';
 
 const useStyles = makeStyles((theme) => ({
   svg: {
-    width: "100vw",
-    zIndex: "-10",
+    width: '100vw',
+    zIndex: '-10',
   },
 }));
 
@@ -15,22 +15,22 @@ function Wave() {
 
   return (
     <Box className={classes.svg}>
-      <div class="waves">
+      <div className='waves'>
         <svg
-          width="100%"
-          height="200px"
-          fill="none"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
+          width='100%'
+          height='200px'
+          fill='none'
+          version='1.1'
+          xmlns='http://www.w3.org/2000/svg'
         >
-          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#00B4DB" />
-            <stop offset="50%" stop-color="#224488" />
-            <stop offset="100%" stop-color="#0083B0" />
+          <linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='0%'>
+            <stop offset='0%' stopColor='#00B4DB' />
+            <stop offset='50%' stopColor='#224488' />
+            <stop offset='100%' stopColor='#0083B0' />
           </linearGradient>
           <path
-            fill="url(#grad1)"
-            d="
+            fill='url(#grad1)'
+            d='
           M0 67
           C 273,183
             822,-40
@@ -39,15 +39,15 @@ function Wave() {
           V 359 
           H 0 
           V 67
-          Z"
+          Z'
           >
             <animate
-              repeatCount="indefinite"
-              fill="url(#grad1)"
-              attributeName="d"
-              dur="15s"
-              attributeType="XML"
-              values="
+              repeatCount='indefinite'
+              fill='url(#grad1)'
+              attributeName='d'
+              dur='15s'
+              attributeType='XML'
+              values='
             M0 77 
             C 473,283
               822,-40
@@ -87,7 +87,7 @@ function Wave() {
             H 0 
             V 67 
             Z
-            "
+            '
             ></animate>
           </path>
         </svg>

@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import { Link as LinkRouter } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -16,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.card.title,
   },
   toolbarSecondary: {
-    justifyContent: "space-between",
-    overflowX: "auto",
+    justifyContent: 'space-between',
+    overflowX: 'auto',
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -27,23 +28,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
-  const backToHome = "https://syndicat-apicole-artesien.com/";
   const { sections, title } = props;
 
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
         <Link
-          component="a"
-          variant="body3"
-          href={backToHome}
-          color="inherit"
-          align="center"
+          component={LinkRouter}
+          to='/'
+          variant='body2'
+          color='inherit'
+          align='center'
           className={classes.toolbarTitle}
         >
           <Typography
-            component="h2"
-            variant="h5"
+            component='h2'
+            variant='h5'
             noWrap
             className={classes.toolbarTitleFont}
           >
@@ -52,17 +52,18 @@ export default function Header(props) {
         </Link>
       </Toolbar>
       <Toolbar
-        component="nav"
-        variant="dense"
+        component='nav'
+        variant='dense'
         className={classes.toolbarSecondary}
       >
         {sections.map((section) => (
           <Link
-            color="inherit"
+            component={LinkRouter}
+            color='inherit'
             noWrap
             key={section.title}
-            variant="body1"
-            href={section.url}
+            variant='body1'
+            to={section.slug}
             className={classes.toolbarLink}
           >
             {section.title}
