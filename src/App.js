@@ -8,7 +8,12 @@ import ReactGA from 'react-ga';
 import RouteChangeTracker from './analytics/RouteChangeTracker';
 // analytics
 
-ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
+ReactGA.initialize(process.env.REACT_APP_TRACKING_ID, {
+  gaOptions: {
+    siteSpeedSampleRate: 100,
+  },
+});
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
   return (
