@@ -32,6 +32,7 @@ export default function Routes() {
         <HomeAnnonce />
       </Route>
       <Route exact path="/post/:id">
+        {/* refacto this , link props useless .Can access the url from react-router hooks*/}
         <Post link="/" api={API.fetchOnePost} />
       </Route>
       <Route exact path="/la-vie-du-syndicat/post/:id">

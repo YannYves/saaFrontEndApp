@@ -134,6 +134,8 @@ function Post({ api, link }) {
     // eslint-disable-next-line
   }, []);
 
+  // TODO refacto this, useless to fetch data here. passe the date from the router instead
+  // then use react-router hooks useLocation()
   const fetchPost = async () => {
     const data = await api(id);
     setPost(data);

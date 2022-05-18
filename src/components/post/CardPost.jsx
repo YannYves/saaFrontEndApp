@@ -84,6 +84,7 @@ export default function CardPost({ post, link }) {
           </Typography>
         </CardContent>
         <CardActions>
+          {/* add state props : state={post} */}
           <Link to={`/${link}/${post.id}`}>
             <Button size="small" className={classes.link}>
               En savoir plus
