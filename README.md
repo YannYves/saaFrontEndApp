@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # TODO
 - Add cookies compliance banner
 - Api call optimisation (see TODO)
-- Image loading optimisation 
+- Image loading optimisation ( webp ?)
 - Remove wawes script 
 - use React.lazy() / React.suspense()
 - Implement a cache policy 
