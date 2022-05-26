@@ -14,7 +14,7 @@ import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
 import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
 import Fade from "react-reveal/Fade";
-import Wave from "../../components/wave/Wave";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 
 function ScrollTop(props) {
   const { children } = props;
@@ -38,7 +38,7 @@ function ScrollTop(props) {
     <Zoom in={trigger}>
       <div
         onClick={handleClick}
-        role="presentation"
+        role='presentation'
         className={classes.backToTop}
       >
         {children}
@@ -91,28 +91,21 @@ export default function Blog(props) {
     setIsLoading(false);
   };
 
-  const jobPost = async () => {
-    console.log(
-      "I'm looking for a job as a React / Node.js developer! If you 're interested please contact me at : https://www.linkedin.com/in/yann-dubois-88665992/ "
-    );
-  };
-
   useEffect(() => {
     findAllMainFeaturedPost();
     findAllPost();
     findAllRegularArticles();
     fetchCarousel();
-    jobPost();
   }, []);
 
   return (
     <React.Fragment>
-      <Container maxWidth="lg">
-        <Toolbar id="back-to-top-anchor" />
+      <Container maxWidth='lg'>
+        <Toolbar id='back-to-top-anchor' />
         <main>
           {isLoading ? (
             <React.Fragment>
-              <Skeleton height={150} width="100%">
+              <Skeleton height={150} width='100%'>
                 <div style={{ marginBottom: "2rem" }} />
               </Skeleton>
             </React.Fragment>
@@ -124,8 +117,8 @@ export default function Blog(props) {
 
           <Grid container spacing={4}>
             {isLoading ? (
-              <Box width="55ww" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
+              <Box width='55ww' margin={2}>
+                <Skeleton variant='rect' width={210} height={118} />
                 <Skeleton width={60} />
                 <Skeleton />
                 <Skeleton />
@@ -135,14 +128,14 @@ export default function Blog(props) {
               posts.map((post, i) => (
                 <Grid item margin={2} xs={12} sm={6} md={4} lg={3}>
                   <Fade bottom>
-                    <CardPost post={post} key={i} link="post" />
+                    <CardPost post={post} key={i} link='post' />
                   </Fade>
                 </Grid>
               ))
             )}
-            <Divider light width="100%" margin={4} />
+            <Divider light width='100%' margin={4} />
             {isLoading ? (
-              <Box width="100vw" margin={2}>
+              <Box width='100vw' margin={2}>
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
@@ -169,7 +162,7 @@ export default function Blog(props) {
 
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
-              <Box width="100vw" margin={2}>
+              <Box width='100vw' margin={2}>
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
@@ -190,13 +183,12 @@ export default function Blog(props) {
           </Grid>
         </main>
         <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <Fab color='secondary' size='small' aria-label='scroll back to top'>
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>
         <Footer />
       </Container>
-      <Wave />
     </React.Fragment>
   );
 }

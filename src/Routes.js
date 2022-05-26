@@ -13,42 +13,42 @@ import API from "./services/PostAPI";
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
+      <Route exact path='/'>
         <Home />
       </Route>
-      <Route exact path="/la-vie-du-syndicat">
+      <Route exact path='/la-vie-du-syndicat'>
         <HomeVie />
       </Route>
-      <Route exact path="/le-rucher-ecole">
+      <Route exact path='/le-rucher-ecole'>
         <HomeRucher />
       </Route>
-      <Route exact path="/news">
+      <Route exact path='/news'>
         <HomeNews />
       </Route>
-      <Route exact path="/utile">
+      <Route exact path='/utile'>
         <HomeUtils />
       </Route>
-      <Route exact path="/petites-annonce">
+      <Route exact path='/petites-annonce'>
         <HomeAnnonce />
       </Route>
-      <Route exact path="/post/:id">
+      <Route exact path='/post/:id'>
         {/* refacto this , link props useless .Can access the url from react-router hooks*/}
-        <Post link="/" api={API.fetchOnePost} />
+        <Post link='/' api={API.fetchOnePost} />
       </Route>
-      <Route exact path="/la-vie-du-syndicat/post/:id">
-        <Post link="/la-vie-du-syndicat" api={API.fetchOnePostVie} />
+      <Route exact path='/la-vie-du-syndicat/post/:id'>
+        <Post link='/la-vie-du-syndicat' api={API.fetchOnePostVie} />
       </Route>
-      <Route exact path="/le-rucher-ecole/post/:id">
-        <Post link="/le-rucher-ecole" api={API.fetchOnePostRucher} />
+      <Route exact path='/le-rucher-ecole/post/:id'>
+        <Post link='/le-rucher-ecole' api={API.fetchOnePostRucher} />
       </Route>
-      <Route exact path="/news/post/:id">
-        <Post link="/news" api={API.fetchOnePostNews} />
+      <Route exact path='/news/post/:id'>
+        <Post link='/news' api={API.fetchOnePostNews} />
       </Route>
-      <Route exact path="/utile/post/:id">
-        <Post link="/utile" api={API.fetchOnePostUtils} />
+      <Route exact path='/utile/post/:id'>
+        <Post link='/utile' api={API.fetchOnePostUtils} />
       </Route>
-      <Route exact path="/petites-annonce/post/:id">
-        <Post link="/petites-annonce" api={API.fetchOnePostAnnonce} />
+      <Route exact path='/petites-annonce/post/:id'>
+        <Post link='/petites-annonce' api={API.fetchOnePostAnnonce} />
       </Route>
       <Route>
         <NotFound />

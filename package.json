@@ -17,6 +17,7 @@
     "markdown-to-jsx": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-cookie-consent": "^7.4.1",
     "react-dom": "^16.13.1",
     "react-focus-lock": "^2.4.1",
     "react-image-gallery": "^1.0.8",

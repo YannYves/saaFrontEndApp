@@ -39,7 +39,7 @@ function ScrollTop(props) {
     <Zoom in={trigger}>
       <div
         onClick={handleClick}
-        role="presentation"
+        role='presentation'
         className={classes.backToTop}
       >
         {children}
@@ -101,12 +101,12 @@ export default function Blog(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
-        <Toolbar id="back-to-top-anchor" />
+      <Container maxWidth='lg'>
+        <Toolbar id='back-to-top-anchor' />
         <main>
           {isLoading ? (
             <React.Fragment>
-              <Skeleton height={150} width="100%">
+              <Skeleton height={150} width='100%'>
                 <div style={{ marginBottom: "2rem" }} />
               </Skeleton>
             </React.Fragment>
@@ -118,8 +118,8 @@ export default function Blog(props) {
 
           <Grid container spacing={4}>
             {isLoading ? (
-              <Box width="65vw" margin={2}>
-                <Skeleton variant="rect" width={210} height={118} />
+              <Box width='65vw' margin={2}>
+                <Skeleton variant='rect' width={210} height={118} />
                 <Skeleton width={60} />
                 <Skeleton />
                 <Skeleton />
@@ -129,14 +129,14 @@ export default function Blog(props) {
               posts.map((post, i) => (
                 <Grid item margin={2} xs={12} sm={6} md={4} lg={3}>
                   <Fade bottom>
-                    <CardPost post={post} key={i} link="le-rucher-ecole/post" />
+                    <CardPost post={post} key={i} link='le-rucher-ecole/post' />
                   </Fade>
                 </Grid>
               ))
             )}
-            <Divider light width="100%" margin={4} />
+            <Divider light width='100%' margin={4} />
             {isLoading ? (
-              <Box width="100vw" margin={2}>
+              <Box width='100vw' margin={2}>
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
@@ -162,7 +162,7 @@ export default function Blog(props) {
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
             {isLoading ? (
-              <Box width="100vw" margin={2}>
+              <Box width='100vw' margin={2}>
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
@@ -183,12 +183,11 @@ export default function Blog(props) {
         </main>
       </Container>
       <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
+        <Fab color='secondary' size='small' aria-label='scroll back to top'>
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
       <Footer />
-      <Wave />
     </React.Fragment>
   );
 }
