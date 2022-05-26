@@ -15,7 +15,6 @@ import PostAPI from "../../services/PostAPI";
 import Footer from "../../components/footer/Footer";
 import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
 import Fade from "react-reveal/Fade";
-import Wave from "../../components/wave/Wave";
 
 function ScrollTop(props) {
   const { children } = props;

@@ -14,7 +14,6 @@ import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
 import BackgroundImageParallax from "../../components/background-image-parallax/Background-image-parallax";
 import Fade from "react-reveal/Fade";
-import CookieConsent, { Cookies } from "react-cookie-consent";
 
 function ScrollTop(props) {
   const { children } = props;
