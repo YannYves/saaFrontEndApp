@@ -60,33 +60,33 @@ export default function CardPost({ post, link }) {
         <CardContent>
           <Typography
             gutterBottom
-            variant="h5"
+            variant='h5'
             className={classes.title}
-            component="h2"
+            component='h2'
           >
             {post.title ? post.title : ""}
           </Typography>
           <Typography
             className={classes.date}
-            component="p"
-            variant="body2"
-            color="textSecondary"
+            component='p'
+            variant='body2'
+            color='textSecondary'
           >
             {frenchDate}
           </Typography>
           <Typography
-            variant="body2"
-            color="textSecondary"
+            variant='body2'
+            color='textSecondary'
             className={classes.text}
-            component="p"
+            component='p'
           >
             {post.content ? post.content.slice(0, 50) + "..." : ""}
           </Typography>
         </CardContent>
         <CardActions>
           {/* add state props : state={post} */}
-          <Link to={`/${link}/${post.id}`}>
-            <Button size="small" className={classes.link}>
+          <Link to={{ pathname: `/${link}/${post.id}`, state: post }}>
+            <Button size='small' className={classes.link}>
               En savoir plus
             </Button>
           </Link>

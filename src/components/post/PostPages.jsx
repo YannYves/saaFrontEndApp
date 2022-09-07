@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useParams, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Skeleton from "@material-ui/lab/Skeleton";
 import {
   Grid,
@@ -22,9 +22,8 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
-function Post({ api, link }) {
-  const { id } = useParams();
-  const [postState, setPost] = useState(null);
+function Post({ link }) {
+  const post = useLocation().state;
   const [isLoading, setIsLoading] = useState(true);
 
   function ScrollTop(props) {
@@ -49,7 +48,7 @@ function Post({ api, link }) {
       <Zoom in={trigger}>
         <div
           onClick={handleClick}
-          role="presentation"
+          role='presentation'
           className={classes.backToTop}
         >
           {children}
@@ -130,41 +129,33 @@ function Post({ api, link }) {
   const classes = useStyles();
 
   useEffect(() => {
-    fetchPost();
+    setIsLoading(false);
     // eslint-disable-next-line
   }, []);
-
-  // TODO refacto this, useless to fetch data here. passe the date from the router instead
-  // then use react-router hooks useLocation()
-  const fetchPost = async () => {
-    const data = await api(id);
-    setPost(data);
-    setIsLoading(false);
-  };
 
   return (
     <Grid
       container
-      alignItem="center"
-      direction="row"
-      justify="center"
+      alignItem='center'
+      direction='row'
+      justify='center'
       className={classes.grid}
     >
       <Grid xs={12} md={8} item>
-        <Toolbar id="back-to-top-anchor" />
+        <Toolbar id='back-to-top-anchor' />
         <Grid
           spacing={3}
           container
-          justify="center"
+          justify='center'
           className={classes.container}
         >
           <Grid item xs={12}>
             <Link to={link}>
               <Button
                 className={classes.button}
-                variant="outlined"
-                color="secondary"
-                size="small"
+                variant='outlined'
+                color='secondary'
+                size='small'
                 startIcon={<ArrowBackIosIcon />}
               >
                 <Typography className={classes.textButton}>Retour</Typography>
@@ -172,96 +163,94 @@ function Post({ api, link }) {
             </Link>
           </Grid>
           <Grid item xs={12}>
-            <Grid container spacing={4} justify="center">
+            <Grid container spacing={4} justify='center'>
               <Grid item md={12}>
                 {isLoading ? (
                   <Box>
-                    <Skeleton variant="rect" width="100%" heigh={400} />
+                    <Skeleton variant='rect' width='100%' heigh={400} />
                   </Box>
                 ) : (
                   <Grid
                     container
-                    alignItems="center"
-                    justify="center"
+                    alignItems='center'
+                    justify='center'
                     spacing={2}
                     xs={12}
-                    maxWidth="lg"
+                    maxWidth='lg'
                   >
                     <CardMedia
                       className={classes.media}
-                      component="img"
-                      maxWidth="lg"
-                      alt={postState.title ? postState.title : "missing title"}
+                      component='img'
+                      maxWidth='lg'
+                      alt={post.title ? post.title : "missing title"}
                       image={
-                        postState.image.length !== 0
-                          ? checkImagesMainFeaturedPost(postState)
+                        post.image.length !== 0
+                          ? checkImagesMainFeaturedPost(post)
                           : ""
                       }
-                      title={
-                        postState.title ? postState.title : "missing title"
-                      }
+                      title={post.title ? post.title : "missing title"}
                     />
                   </Grid>
                 )}
                 <Grid
                   container
-                  alignItem="center"
-                  justify="center"
+                  alignItem='center'
+                  justify='center'
                   xs={12}
                   className={classes.titleContainer}
                 >
                   <Typography
                     xs={12}
                     gutterBottom
-                    variant="h5"
-                    component="h2"
+                    variant='h5'
+                    component='h2'
                     className={classes.title}
                   >
                     {isLoading ? (
                       <PostContentLoader />
-                    ) : postState.title ? (
-                      postState.title
+                    ) : post.title ? (
+                      post.title
                     ) : (
                       ""
                     )}
                   </Typography>
                   <Grid item xs={12} className={classes.titleContainer}>
-                    <Typography variant="h2" className={classes.date}>
+                    <Typography variant='h2' className={classes.date}>
                       {isLoading ? (
                         <PostContentLoader />
-                      ) : usToFrenchDate(postState.date) ? (
-                        usToFrenchDate(postState.date)
+                      ) : usToFrenchDate(post.date) ? (
+                        usToFrenchDate(post.date)
                       ) : (
                         ""
                       )}
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider variant="middle" />
+                <Divider variant='middle' />
               </Grid>
             </Grid>
             <Grid
               container
               spacing={4}
-              alignItems="center"
-              direction="row"
-              justify="center"
+              alignItems='center'
+              direction='row'
+              justify='center'
               className={classes.content}
             >
               <Grid item xs={11} sm={10} spacing={5}>
                 <Typography>
                   {isLoading ? (
                     <Box>
-                      <Skeleton variant="text" />
-                      <Skeleton variant="text" />
-                      <Skeleton variant="text" />
+                      <Skeleton variant='text' />
+                      <Skeleton variant='text' />
+                      <Skeleton variant='text' />
                     </Box>
-                  ) : postState.content ? (
+                  ) : post.content ? (
                     <Markdown
                       className={classes.markdown}
-                      key={postState.content.substring(0, 40)}
+                      key={post.content.substring(0, 40)}
                     >
-                      {postState.content}
+                      {post.content}
                     </Markdown>
                   ) : (
                     ""
@@ -273,7 +262,7 @@ function Post({ api, link }) {
         </Grid>
       </Grid>
       <ScrollTop>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
+        <Fab color='secondary' size='small' aria-label='scroll back to top'>
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
