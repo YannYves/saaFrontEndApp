@@ -9,11 +9,8 @@ import GA4React from "ga-4-react";
 const ga4react = new GA4React(process.env.REACT_APP_TRACKING_ID);
 
 const analyticsEnabled = async (cookieConsent) => {
-  if (cookieConsent !== undefined || cookieConsent) {
-    await ga4react
-      .initialize()
-      .then((res) => console.log("Analytics Success."))
-      .catch((err) => console.log("Analytics Failure."));
+  if (cookieConsent === "true") {
+    await ga4react.initialize();
   }
 };
 
@@ -23,11 +20,12 @@ function App() {
 
   useEffect(() => {
     analyticsEnabled(cookieConsent);
-  }, [cookieConsent, acceptCookie]);
+  }, [acceptCookie, cookieConsent]);
 
   return (
     <ThemeProvider theme={theme}>
       <CookieConsent
+        enableDeclineButton
         onAccept={() => {
           setAcceptCookie(true);
         }}
