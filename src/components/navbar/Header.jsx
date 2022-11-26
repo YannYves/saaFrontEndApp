@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import { Link as LinkRouter } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { Link as LinkRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.card.title,
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
+    justifyContent: "space-between",
+    overflowX: "auto",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -63,7 +63,7 @@ export default function Header(props) {
             noWrap
             key={section.title}
             variant='body1'
-            to={section.slug}
+            to={`/${section.slug}`}
             className={classes.toolbarLink}
           >
             {section.title}
