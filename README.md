@@ -1,13 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # TODO
-- Add cookies compliance banner
-- Api call optimisation (see TODO)
 - Image loading optimisation ( webp ?)
+- Check layout for post page
 - Remove wawes script 
 - use React.lazy() / React.suspense()
 - Implement a cache policy 
-- Improve analytics perfs
 - check lighthouse reports
 - Optional : migrate to gatsby + implement build hook from api
 
